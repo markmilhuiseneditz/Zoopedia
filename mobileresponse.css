@@ -117,56 +117,39 @@
 
 @media (max-width: 576px) {
     
-    /* 1. Reset Card Height to be dynamic */
-    .custom-card {
-        height: auto !important; /* Removes the 550px restriction */
-        min-height: 520px;       /* Ensures cards in a row stay the same size */
-        padding: 15px !important;
-        display: flex;
-        flex-direction: column;
-    }
-
-    /* 2. Make Images Round */
+ @media (max-width: 576px) {
+    
     .maincardimg {
-        width: 140px !important;
-        height: 140px !important;
-        border-radius: 50% !important; /* Perfect circle */
-        object-fit: cover !important;  /* Centers the animal's face */
-        margin: 0 auto 10px auto;
-        border: 3px solid #035e21;
+        display: block !important;       /* This is the key to making margins work */
+        width: 128px !important;         /* Consistent size for the circles */
+        height: 128px !important;
+        border-radius: 50% !important;   /* Keeps it a perfect circle */
+        object-fit: cover !important;    /* Ensures the animal face isn't stretched */
+        
+        /* Centering Logic */
+        margin-left: -6px !important;    
+        margin-right: auto !important;
+        margin-top: -10px !important;    /* Pulls it slightly up if you want that overlapping look */
+        margin-bottom: 15px !important;  /* Space between image and 'Lion/Tiger' text */
+        
+        border: 4px solid #035e21 !important; 
+        background-color: #f1e3d0;        /* Matches your card background */
     }
+    
+ .card-body {
+        text-align: center !important;   /* Centers the Title and Description */
+        padding: 10px !important;
 
-    /* 3. Target the card-body to handle the button push */
-    .card-body {
-        display: flex;
-        flex-direction: column;
-        flex-grow: 1; /* Fills the rest of the card */
-        text-align: center;
-        padding: 0 !important;
     }
+}
 
-    /* 4. Fix the Text Cutoff */
-    p.card-text {
+    /* 3. Make sure the title and text align to center */
+    .custom-card h4, 
+    .custom-card p.card-text {
         text-align: center !important;
-        font-size: 0.9rem !important;
-        line-height: 1.4 !important;
-        
-        /* Remove the fixed heights causing the cutoff */
-        min-height: auto !important; 
-        max-height: none !important; 
-        overflow: visible !important;
-        
-        flex-grow: 1; /* This pushes the button down */
-        margin-bottom: 15px !important;
+        width: 100%;
     }
-
-    /* 5. Fix Button Position */
-    .btn-primary {
-        margin-top: auto !important; /* Magnetizes button to the bottom */
-        margin-bottom: 5px !important;
-        padding: 8px 25px !important;
-        align-self: center;
-    }
+}
 }
 
 }
@@ -244,8 +227,6 @@
         width: 25px;
         height: 25px;
     }
-}
-
 
 
 /* Mobile Navbar Fix */
@@ -261,3 +242,13 @@
         margin-bottom: 10px;
     }
 }
+
+
+        /* Mobile adjustment for Profile Picture on Single Prouct Page */
+        @media (max-width: 576px) {
+            .profile-icon {
+                width: 250px;
+                height: 250px;
+                border-radius: 30px;
+            }
+        }

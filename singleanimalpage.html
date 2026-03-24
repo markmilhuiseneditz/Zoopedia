@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+   <link rel="stylesheet" href="mobileresponse.css">
+   <script src="animaldb.js"></script>
+   <script src="loadeddetails.js"></script>
+   <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+
+
+
+
+
+
+<body>
+
+
+    <!-- navigation bar adjustments -->
+<nav class="navbar navbar-expand-lg custom-nav" data-bs-theme="dark">
+  <div class="container-fluid">
+    <img src="img/Zoopedia logo.png" alt="Zoopedia Logo" class="nav-logo">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link1"  aria-current="page" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link2" href="prdouct catalog.html">Creature Catalog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link3" href="#">Feed</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link4" href="#">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>  
+
+
+<!-- TextAnimalName -->
+<h1 class="Grids text-center">Red Panda</h1>
+
+
+<!-- Profile image -->
+<section class="animalprofile text-center">
+    <div class="profile-container">
+        <img src="img/animals/cam.jpeg" id="profile-img" class="profile-icon" alt="Animal Profile">
+    </div>
+</section>
+
+<!-- Animal Title & Description -->
+<div class="container">
+    <section class="details-section">
+        <h2 class="KeyCharacteristics">Species Overview</h2>
+        <p class="para">
+            The Red Panda, often described as a living fossil, is a master of the high-altitude 
+            forest canopy. Despite its name, it is more closely related to weasels and raccoons 
+            than to giant pandas. These solitary creatures spend most of their lives in trees, 
+            using their long, bushy tails for balance and as a wraparound blanket during 
+            chilly Himalayan nights. Their diet consists primarily of bamboo, though they 
+            are known to snack on fruits, acorns, and the occasional bird egg.
+        </p>
+    </section>
+</div>
+
+<!-- Image Banner using bootstrap for join us -->
+
+<section id="joinus" class="position-relative">
+    <img src="img/banners/Join us.png" class="img-fluid" alt="...">
+    
+    <a href="prdouct catalog.html" class="btn custom-join-btn position-absolute">
+       JOIN THE WILD
+    </a>
+</section>
+
+
+<!-- Bootstrap Table  -->
+
+<div class="container mt-4 mb-5">
+    <div class="details-section">
+        <h2 class="KeyCharacteristics">Quick Facts</h2>
+        
+        <div class="table-responsive mt-3">
+            <table class="table table-dark table-striped table-hover border-success">
+                <thead>
+                    <tr>
+                        <th scope="col" style="color: #ffcc00; font-family: 'BebasNeuefont'; letter-spacing: 1px;">Attribute</th>
+                        <th scope="col" style="color: #ffcc00; font-family: 'BebasNeuefont'; letter-spacing: 1px;">Information</th>
+                    </tr>
+                </thead>
+                <tbody style="font-family: 'SFfontBold';">
+                    <tr>
+                        <td><strong>Scientific Name</strong></td>
+                        <td class="fst-italic">Rattus rattus</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Class</strong></td>
+                        <td>Mammalia</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Diet</strong></td>
+                        <td>Omnivore</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Life Span</strong></td>
+                        <td>10 to 13 years</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Conservation Status</strong></td>
+                        <td>
+                            <span class="badge bg-success">Stable</span> 
+                            Not Evaluated (domesticated species)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- Newsletter Section -->
+
+<section class="newsletter-banner">
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+      
+      <div class="col-md-6 newsletter-content">
+        <h2 class="newsletter-title">JOIN WITH US FOR NEWSLETTER</h2>
+        <p class="newsletter-text">
+          Check out Email updates about latest automobiles and <span class="highlight-text">special deals</span>
+        </p>
+      </div>
+
+      <div class="col-md-6">
+        <form class="newsletter-form">
+          <div class="input-group">
+            <input type="email" class="form-control newsletter-input" placeholder="Email address" aria-label="Email address">
+            <button class="btn btn-signup" type="submit">Sign Up</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<!-- Footers -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-layout">
+      
+    <div class="footer-section brand-info">
+    <h3 class="footer-logo">
+    <span class="logo-main">ZOOPEDIA</span><span class="logo-accent"> PRIME</span>
+    </h3>
+    <p class="footer-description">Your premium destination for the latest automotive trends, technical specs, and exclusive deals.</p>
+    </div>
+
+      <div class="footer-section site-navigation">
+        <h4 class="section-title">Quick Navigation</h4>
+        <ul class="footer-list">
+          <li><a href="#">Creature Catalog</a></li>
+          <li><a href="#">Fact Page</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Support Center</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section app-downloads">
+        <h4 class="section-title">Get the Mobile App</h4>
+        <p>Experience the full portal on your mobile device.</p>
+        <div class="store-buttons">
+          <a href="#" class="store-btn">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play">
+          </a>
+          <a href="#" class="store-btn">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on the App Store">
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-credits">
+      <hr class="footer-divider">
+      <p>&copy; 2026 Zoopedia Prime. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+
