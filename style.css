@@ -565,30 +565,47 @@ p {
 }
 
 
-/* Mobile Responsiveness for predators hero banner */
+ /* Adjustments for wild animals hero banner */
 
-@media (max-width: 799px) {
-
-    #bannerslpage{
-    background-image: url('img/banner/slauthmob.jpg'); 
-    width: 100%;
-    background-size: contain; 
-    background-repeat: no-repeat;
-    background-position: center;
-    
-
-    height: auto;
-    aspect-ratio: 16 / 4; 
-    
-    display: flex;
+#bannerwild{
+    background-image: url('img/banners/wild.png');
+    height: 40vh;
+    background-size: cover;
     justify-content: center;
-    align-items: center;
     text-align: center;
     flex-direction: column;
-    padding: 0;
+    padding: 14px;
 }
 
+
+
+ /* Adjustments for domestic animals hero banner */
+
+#bannerdom{
+    background-image: url('img/banners/dommestic.png');
+    height: 40vh;
+    background-size: cover;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 14px;
 }
+
+
+ /* Adjustments for crawlers hero banner */
+
+#bannercrawl{
+    background-image: url('img/banners/Crawler.png');
+    height: 40vh;
+    background-size: cover;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 14px;
+}
+
+
+
 
 /* Pagination bar */
 
