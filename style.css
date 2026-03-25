@@ -40,14 +40,14 @@
   font-display: swap;
 }
 
-
+/* __________________________________________________________________________________________________________________________ */
 
 body {
   background-image: url('img/banners/body\ cover.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed; /* Keeps the image still while content scrolls over it */
+  background-attachment: fixed; /* Gives a fixed background so it moves  */
 }
 
 
@@ -91,6 +91,18 @@ body {
     text-align: center;
     flex-direction: column;
     padding: 14px;
+}
+
+
+/* --- Adjustments for Mobile Devices (max-width: 768px) --- */
+@media (max-width: 576px ) {
+    #bannerabout {
+        /* DIFFERENT, smaller, or differently cropped image for mobile */
+        background-image: url('img/banners/hero\ serction\ home\ mob.png');
+
+        /* Reduced height for mobile so it doesn't take up the whole screen */
+        height: 30vh;
+    }
 }
 
 
@@ -263,24 +275,28 @@ p {
 
 .bg-1 {
   background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                    url("img/animals/cheet.png");
+                    url("img/animals/lacto.jpg");
 }
 
 .bg-2 {
   background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                    url("img/animals/lion.png");
+                    url("img/animals/Caecilian.jpg");
 }
 
 .bg-3 {
   background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                    url("img/animals/tiger.png");
+                    url("img/animals/pil.png");
 }
 
 .bg-4 {
   background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                    url("img/animals/sheep.png");
+                    url("img/animals/waterlizz.jpg");
 }
 
+
+.notebutton{
+  color: red;
+}
 
 
 /* CSS FOR NEWSLETTER SECTION */
@@ -548,7 +564,6 @@ p {
 
 
 
-
 /* Banners for catalog pages */
 
 
@@ -565,17 +580,6 @@ p {
 }
 
 
- /* Adjustments for wild animals hero banner */
-
-#bannerwild{
-    background-image: url('img/banners/wild.png');
-    height: 40vh;
-    background-size: cover;
-    justify-content: center;
-    text-align: center;
-    flex-direction: column;
-    padding: 14px;
-}
 
 
 
@@ -605,6 +609,83 @@ p {
 }
 
 
+ /* Adjustments for about us hero banner */
+
+#bannerwild{
+    background-image: url('img/banners/wild.png');
+    height: 40vh;
+    background-size: cover;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 14px;
+}
+
+ /* Adjustments for about us hero banner */
+
+/* Adjustments for Desktop */
+#banneraboutus {
+    /* Large image for desktop screens */
+    background-image: url('img/banners/JOIN\ US.png');
+    
+    /* These properties ensure it looks good and centers content */
+    height: 40vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 14px;
+}
+
+/* --- Adjustments for Mobile Devices (max-width: 768px) --- */
+@media (max-width: 576px ) {
+    #banneraboutus {
+        /* DIFFERENT, smaller, or differently cropped image for mobile */
+        background-image: url('img/banners/jointeam\ mob.jpg');
+
+        /* Reduced height for mobile so it doesn't take up the whole screen */
+        height: 30vh;
+    }
+}
+
+
+
+ /* Adjustments for about us hero banner */
+
+/* Adjustments for Desktop */
+#bannercontactus {
+    /* Large image for desktop screens */
+    background-image: url('img/banners/CONTACT\ US.png');
+    
+    /* These properties ensure it looks good and centers content */
+    height: 40vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 14px;
+}
+
+/* --- Adjustments for Mobile Devices (max-width: 768px) --- */
+@media (max-width: 576px ) {
+    #bannercontactus {
+        /* DIFFERENT, smaller, or differently cropped image for mobile */
+        background-image: url('img/banners/contact\ mob.jpg');
+
+        /* Reduced height for mobile so it doesn't take up the whole screen */
+        height: 30vh;
+    }
+}
+
+
 
 
 /* Pagination bar */
@@ -615,6 +696,7 @@ p {
     justify-content: center;
     align-items: center; /* Keeps them perfectly level */
     gap: 12px;
+    margin-bottom: 15px;
 }
 
 .btn-outline-danger {
@@ -772,4 +854,148 @@ p {
     background: #ffffff;
     color: #484e47;                       /* Changes text to green on hover */
     transform: translate(-50%, -50%) scale(1.1); /* Keeps it centered but grows slightly */
+}
+
+
+/* About Us Css  */
+.Abouttext {
+    color: #035e21;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+
+#team-section {
+    background-image: url('img/banners/board.png'); 
+    background-repeat: no-repeat;
+    
+    /* Keep width at 70%, but you can adjust this as needed */
+    background-size: 75% auto; 
+
+    /* FIX: center = horizontal, the second value is vertical.
+       0% is the very top, 50% is middle. Try 10% or 20% to nudge it up. */
+    background-position: center 30%; 
+
+    /* Ensure text stays readable */
+    color: #fff;
+    padding: 100px 0;
+
+}
+
+/* board removal for Mobile Devices  */
+@media (max-width: 576px) {
+    #team-section {
+        background-image: none !important; /* Removes board the background image */
+        background-color: #333; /* Optional: Adds a solid color instead so white text stays visible */
+        padding: 40px 20px; /* Reduces the large padding for smaller screens */
+        width: 100%; /* Ensures the section takes full width on mobile */
+    }
+}
+
+
+.Teamtxt{
+   font-family: 'Spancerfont', sans-serif; 
+   text-align: center;
+   transform: translateY(-30px);
+}
+
+/* Team Profile Icon and text adjustments */
+.rounded-circle {
+    width: 150px;
+    height: 180px;
+    object-fit: cover;
+}
+
+.pronametxt {
+    text-align: center;
+    font-family: 'SFfontBold', sans-serif; 
+}
+
+.proclasstxt{
+  text-align: center;
+}
+
+
+/* bootstrap style table customization using external css  */
+
+/* Centered Compact Wildlife Theme */
+.wildlife-compact {
+    font-size: 0.85rem;
+    margin: 2rem auto !important; /* Forces centering and adds vertical breathing room */
+    border-color: #D4AF37 !important;
+    background-color: #fdfbf7;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Optional: adds a nice lift */
+}
+
+/* Header Styling - Dark Green & Gold */
+.wildlife-compact thead th {
+    background-color: #1B3022 !important;
+    color: #D4AF37 !important;
+    border-bottom: 2px solid #D4AF37 !important;
+    padding: 10px !important;
+}
+
+/* Row Styling */
+.wildlife-compact td {
+    border-color: rgba(212, 175, 55, 0.2) !important;
+    padding: 8px !important;
+    color: #1B3022;
+}
+
+/* Highlight the Year column */
+.wildlife-compact td:first-child {
+    background-color: rgba(27, 48, 34, 0.03); /* Very faint green tint */
+    font-weight: bold;
+}
+
+/* Hover Effect */
+.wildlife-compact tbody tr:hover {
+    background-color: #f2ede0 !important;
+}
+
+/* Contact Us Css */
+/* 1. The Header Background */
+table.wildlife-table thead tr {
+    background-color: #1b4332 !important; /* Deep Forest Green */
+    color: white !important;
+}
+
+/* 2. The Header Text specifically */
+table.wildlife-table thead th {
+    background-color: inherit !important;
+    color: white !important;
+    border-bottom: 3px solid #582f0e; /* Earth Brown bottom border */
+}
+
+/* 3. Alternating Row Colors (Zebra Stripe) */
+table.wildlife-table tbody tr:nth-of-type(odd) {
+    background-color: #f0f7f4 !important; /* Soft Leaf Green */
+}
+
+table.wildlife-table tbody tr:nth-of-type(even) {
+    background-color: #ffffff !important;
+}
+
+/* 4. The Labels (Left Column) */
+.wildlife-label {
+    font-weight: bold;
+    color: #582f0e !important; /* Earth Brown */
+}
+
+/* 5. General Table Border */
+table.wildlife-table {
+    border: 2px solid #1b4332 !important;
+    border-collapse: collapse;
+}
+
+/* 6. Fix for Bootstrap's default cell borders */
+table.wildlife-table td {
+    border-color: #d8e2dc !important;
+}
+
+.detailsector{
+  margin-top: 60px;
+  margin-bottom: 40px;
 }
