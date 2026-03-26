@@ -1,0 +1,554 @@
+/* Font Family imports */
+
+@font-face {
+  font-family: 'Zurambifont';
+  src: url('fonts/zurambi-font/Zurambi-m2Ea2.ttf') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BebasNeuefont';
+  src: url('fonts/Bebas_Neue/BebasNeue-Regular.ttf') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Spancerfont';
+  src: url('fonts/spencer/Spencer.otf') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SFfontBold';
+  src: url('fonts/sf-pro-display/SFPRODISPLAYBOLD.OTF') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SFfontNomal';
+  src: url('fonts/sf-pro-display/SFPRODISPLAYMEDIUM.OTF') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+
+
+/* __________________________________________________________________________________________________________________________ */
+
+
+/* ================= NAVBAR ================= */
+
+.custom-nav {
+  background-color: #035e21 !important;
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+/* Centers nav items */
+#navbarNav {
+  justify-content: center;
+}
+
+/* ================= LOGO ================= */
+
+.nav-logo {
+  height: 45px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.nav-logo:hover {
+  transform: scale(1.05);
+}
+
+.navbar-brand {
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* ================= NAV LINKS ================= */
+
+/* Use Bootstrap default .nav-link instead of multiple classes */
+.navbar-nav .nav-link {
+  color: rgb(252, 214, 165) !important;
+  font-family: 'Zurambifont', sans-serif;
+  font-weight: 500;
+  padding: 8px 18px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+/* Hover effect */
+.navbar-nav .nav-link:hover {
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Active page */
+.navbar-nav .nav-link.active {
+  color: #ffffff !important;
+  font-weight: 700;
+  border-bottom: 2px solid #ffffff;
+  border-radius: 0;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 991px) {
+  .custom-nav {
+    height: auto;
+    padding: 10px 0;
+  }
+
+  #navbarNav {
+    justify-content: flex-start;
+  }
+
+  .navbar-nav {
+    margin-top: 10px;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 10px;
+  }
+}
+
+
+
+/* ===============================
+   Animal Profile Section
+=================================*/
+
+.animalprofile {
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-icon {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    border-radius: 40px;
+    object-fit: cover;
+
+    border: 8px solid #035e21;
+    background-color: #f1e3d0;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-icon:hover {
+    transform: scale(1.03);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+
+/* ===============================
+   Details Section
+=================================*/
+
+.details-section {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border-radius: 25px;
+    border-left: 8px solid #035e21;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.KeyCharacteristics {
+    display: flex;
+    align-items: center;
+    margin: 0;
+
+    font-family: 'Spancerfont', sans-serif;
+    font-size: 32px;
+    color: #035e21;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.KeyCharacteristics::before {
+    content: "●";
+    margin-right: 12px;
+    font-size: 18px;
+    color: #ffcc00;
+}
+
+.para {
+    margin-top: 20px;
+    font-family: 'Zurambifont', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #2c3e50;
+    text-align: justify;
+}
+
+.para::first-letter {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #035e21;
+    float: left;
+    margin-right: 8px;
+}
+
+
+/* ===============================
+   Join Button
+=================================*/
+
+.custom-join-btn {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 12px 28px;
+
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    transition: 0.3s ease;
+}
+
+.custom-join-btn:hover {
+    background: #fff;
+    color: #484e47;
+    transform: translate(-50%, -50%) scale(1.08);
+}
+
+
+/* ===============================
+   Team Section
+=================================*/
+
+#team-section {
+    background: url('img/banners/board.png') no-repeat center 30%;
+    background-size: 75% auto;
+    color: #fff;
+    padding: 100px 0;
+}
+
+@media (max-width: 576px) {
+    #team-section {
+        background: #333;
+        padding: 40px 20px;
+    }
+}
+
+.Teamtxt {
+    text-align: center;
+    transform: translateY(-30px);
+    font-family: 'Spancerfont', sans-serif;
+}
+
+.rounded-circle {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.pronametxt,
+.proclasstxt {
+    text-align: center;
+}
+
+
+/* ===============================
+   Tables (Wildlife Theme)
+=================================*/
+
+.wildlife-compact {
+    font-size: 0.85rem;
+    margin: 2rem auto;
+    background-color: #fdfbf7;
+
+    border-color: #D4AF37;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.wildlife-compact thead th {
+    background-color: #1B3022;
+    color: #D4AF37;
+    border-bottom: 2px solid #D4AF37;
+    padding: 10px;
+}
+
+.wildlife-compact td {
+    padding: 8px;
+    color: #1B3022;
+    border-color: rgba(212, 175, 55, 0.2);
+}
+
+.wildlife-compact tbody tr:hover {
+    background-color: #f2ede0;
+}
+
+
+/* ===============================
+   Contact Table
+=================================*/
+
+table.wildlife-table {
+    border: 2px solid #1b4332;
+    border-collapse: collapse;
+}
+
+table.wildlife-table thead tr {
+    background-color: #1b4332;
+    color: #fff;
+}
+
+table.wildlife-table thead th {
+    border-bottom: 3px solid #582f0e;
+}
+
+table.wildlife-table tbody tr:nth-child(odd) {
+    background-color: #f0f7f4;
+}
+
+table.wildlife-table tbody tr:nth-child(even) {
+    background-color: #fff;
+}
+
+.wildlife-label {
+    font-weight: bold;
+    color: #582f0e;
+}
+
+table.wildlife-table td {
+    border-color: #d8e2dc;
+}
+
+
+/* ===============================
+   Utilities
+=================================*/
+
+.detailsector {
+    margin: 60px 0 40px;
+}
+
+.Abouttext {
+    color: #035e21;
+    font-size: 2.3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+
+
+/* ================= NEWSLETTER SECTION ================= */
+
+.newsletter-banner {
+  position: relative;
+  background: url('img/banners/newsletter\ banner.png') center/cover no-repeat;
+  color: #fff;
+  padding: 80px 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Dark overlay for readability */
+.newsletter-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+/* Content layer above overlay */
+.newsletter-banner .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Center content vertically */
+.newsletter-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* ================= TYPOGRAPHY ================= */
+
+.newsletter-title {
+  font-family: 'Zurambifont', Arial, sans-serif;
+  font-weight: 800;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  color: #fcd6a5;
+  margin-bottom: 10px;
+}
+
+.newsletter-text {
+  font-size: 1rem;
+  font-weight: 500;
+  opacity: 0.95;
+  margin-bottom: 20px;
+}
+
+.highlight-text {
+  color: #ffcc00;
+}
+
+/* ================= FORM ================= */
+
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+}
+
+.newsletter-form .input-group {
+  max-width: 500px;
+  width: 100%;
+}
+
+/* Input field */
+.newsletter-input {
+  height: 45px;
+  border: none;
+  padding: 0 15px;
+  font-family: 'Zurambifont', sans-serif;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+}
+
+/* Button */
+.btn-signup {
+  background-color: #01500e;
+  color: #fcd6a5;
+  border: none;
+  padding: 0 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-radius: 0 4px 4px 0;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-signup:hover {
+  background-color: #013a0b;
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .newsletter-banner {
+    padding: 60px 15px;
+  }
+
+  .newsletter-title {
+    font-size: 1.6rem;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 70px;
+  }
+
+  .newsletter-input,
+  .btn-signup {
+    width: 100%;
+    border-radius: 4px;
+  }
+
+  .btn-signup {
+    margin-top: 10px;
+  }
+}
+
+
+/* ================= FOOTER ================= */
+.site-footer {
+  background: #111;
+  color: #ccc;
+  padding: 60px 0 20px;
+}
+
+.footer-logo {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.logo-main {
+  color: #fff;
+}
+
+.logo-accent {
+  color: #00ff37;
+}
+
+.footer-description {
+  margin-top: 15px;
+  color: #aaa;
+  line-height: 1.6;
+}
+
+.footer-title {
+  color: #fff;
+  margin-bottom: 15px;
+  font-size: 16px;
+  font-weight: 600;
+  margin-right: 280px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #bbb;
+  transition: 0.3s;
+}
+
+.footer-links a:hover {
+  color: #8cc63f;
+  padding-left: 5px;
+}
+
+.footer-bottom hr {
+  border-color: #333;
+  margin: 30px 0 15px;
+}
+
+.footer-bottom p {
+  color: #777;
+  font-size: 13px;
+}

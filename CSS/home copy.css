@@ -1,0 +1,667 @@
+/* Font Family imports */
+
+@font-face {
+  font-family: 'Zurambifont';
+  src: url('fonts/zurambi-font/Zurambi-m2Ea2.ttf') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BebasNeuefont';
+  src: url('fonts/Bebas_Neue/BebasNeue-Regular.ttf') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Spancerfont';
+  src: url('fonts/spencer/Spencer.otf') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SFfontBold';
+  src: url('fonts/sf-pro-display/SFPRODISPLAYBOLD.OTF') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SFfontNomal';
+  src: url('fonts/sf-pro-display/SFPRODISPLAYMEDIUM.OTF') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+
+
+/* __________________________________________________________________________________________________________________________ */
+
+
+/* ================= NAVBAR ================= */
+
+.custom-nav {
+  background-color: #035e21 !important;
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+/* Centers nav items */
+#navbarNav {
+  justify-content: center;
+}
+
+/* ================= LOGO ================= */
+
+.nav-logo {
+  height: 45px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.nav-logo:hover {
+  transform: scale(1.05);
+}
+
+.navbar-brand {
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* ================= NAV LINKS ================= */
+
+/* Use Bootstrap default .nav-link instead of multiple classes */
+.navbar-nav .nav-link {
+  color: rgb(252, 214, 165) !important;
+  font-family: 'Zurambifont', sans-serif;
+  font-weight: 500;
+  padding: 8px 18px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+/* Hover effect */
+.navbar-nav .nav-link:hover {
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Active page */
+.navbar-nav .nav-link.active {
+  color: #ffffff !important;
+  font-weight: 700;
+  border-bottom: 2px solid #ffffff;
+  border-radius: 0;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 991px) {
+  .custom-nav {
+    height: auto;
+    padding: 10px 0;
+  }
+
+  #navbarNav {
+    justify-content: flex-start;
+  }
+
+  .navbar-nav {
+    margin-top: 10px;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 10px;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* 1. The Card Container/Wrapper */
+
+
+.Grids {
+    color: #035e21;
+    margin-top: 40px;
+    text-align: center;
+    font-family: 'Spancerfont', sans-serif;
+}
+
+.custom-card {
+    border: 4px solid #035e21; 
+    border-radius: 20px;      
+    padding: 20px;             
+    background-color: rgb(241, 227, 208);
+    display: flex;
+    flex-direction: column;
+    /* This ensures the card doesn't grow based on content */
+    height: 550px; 
+}
+
+.maincardimg {
+    border-radius: 20px;
+    width: 100%;
+    height: 250px; /* Fixed height so all 8 images match */
+    object-fit: contain; /* Prevents images from stretching */
+}
+
+h4 {
+    text-align: center;
+    font-family: 'Spancerfont', sans-serif;
+    margin-top: 30px;
+    
+}
+
+p {
+    text-align: left;
+    font-family: 'Zurambifont', sans-serif;
+    font-size: medium;
+    
+    /* FIX: This reserves space for exactly 4-5 lines of text */
+    min-height: 120px; 
+    max-height: 120px;
+    overflow: hidden; /* This prevents extra text from spilling out */
+    
+    margin-bottom: 10px;
+}
+
+.btn-primary {
+    background-color: #035e21; 
+    border: none;
+    display: block;
+    margin: auto auto 0 auto; /* The '0' at the bottom keeps it at the very base */
+    width: fit-content; /* Ensures the button doesn't stretch to full width */
+}
+
+
+
+
+body {
+  background: #ede2d9;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Gives a fixed background so it moves  */
+}
+
+
+
+/* Hero Section Banner Css*/
+#bannerabout{
+    background-image: url('../img/banners/hero\ serction\ home.png');
+    height: 40vh;
+    background-size: cover;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 14px;
+}
+
+
+/* --- Adjustments for Mobile Devices (max-width: 768px) --- */
+@media (max-width: 576px ) {
+    #bannerabout {
+        /* DIFFERENT, smaller, or differently cropped image for mobile */
+        background-image: url('../img/banners/hero\ serction\ home\ mob.png');
+
+        /* Reduced height for mobile so it doesn't take up the whole screen */
+        height: 30vh;
+    }
+}
+
+
+/* SECTION TITLE */
+
+.section-title {
+    font-family: 'Spancerfont', sans-serif;
+    color: #035e21;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* CARD */
+.custom-card {
+    border: none;
+    border-radius: 18px;
+    background-color: #f1e3d0;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* HOVER EFFECT */
+.custom-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* IMAGE */
+.maincardimg {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+/* CARD BODY */
+.card-body {
+    padding: 20px;
+}
+
+/* TITLE */
+.card-title {
+    text-align: center;
+    font-family: 'Spancerfont', sans-serif;
+    margin-bottom: 10px;
+    color: #035e21;
+}
+
+/* TEXT */
+.card-text {
+    font-family: 'Zurambifont', sans-serif;
+    font-size: 14px;
+    min-height: 100px;
+    max-height: 100px;
+    overflow: hidden;
+    text-align: center;
+    color: #333;
+}
+
+/* BUTTON */
+.btn-primary {
+    background-color: #035e21;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    transition: background 0.3s ease;
+}
+
+/* BUTTON HOVER */
+.btn-primary:hover {
+    background-color: #024017;
+}
+
+
+/* ================= DID YOU KNOW BANNER ================= */
+
+.full-width-banner {
+  width: 100%;
+  height: 500px;
+
+  background: url('../img/banners/Did\ you\ know\ banner1.png') center/cover no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  position: relative;
+  padding: 20px;
+}
+
+/* Optional overlay for better readability */
+.full-width-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.full-width-banner > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ================= BUTTON STYLE ================= */
+
+.btn-outline-primary2 {
+  color: #eeb600;
+  border: 2px solid #ffd000;
+  background-color: transparent;
+
+  padding: 14px 32px;
+  font-weight: 600;
+  border-radius: 6px;
+
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover state */
+.btn-outline-primary2:hover {
+  background-color: #5d4037;
+  border-color: #5d4037;
+  color: #ffffff;
+
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Active (click) state */
+.btn-outline-primary2:active {
+  background-color: #3e2723;
+  border-color: #3e2723;
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Focus state for accessibility */
+.btn-outline-primary2:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(238, 182, 0, 0.3);
+}
+
+
+
+
+
+
+
+
+/* ================= CONTAINERS ================= */
+.notes-section {
+  background-color: #5d45fd; 
+  padding: 80px 0;
+}
+
+.tinytalk-card {
+  position: relative;
+  border-radius: 40px; 
+  padding: 40px;
+  min-height: 500px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+}
+
+.bg-1 { background-color: #a393eb; } 
+.bg-2 { background-color: #00a8e8; } 
+.bg-3 { background-color: #ffda79; }
+.bg-4 { background-color: #ffabe1; }
+
+/* ================= BACKGROUND TEXT ================= */
+.card-bg-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 130%; /* Stretches beyond the card */
+  font-family: 'Arial Black', Gadget, sans-serif;
+  font-weight: 900;
+  font-size: 7rem;
+  line-height: 0.8;
+  color: rgba(255, 255, 255, 0.5); /* Semi-transparent watermark */
+  z-index: 1;
+  text-align: center;
+  pointer-events: none;
+  font-stretch: expanded;
+}
+
+/* ================= THE PEBBLE-SHAPED IMAGE FRAME ================= */
+.card-content {
+  position: relative;
+  z-index: 2; /* Sits above the watermark text */
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pebble-frame {
+  width: 250px;
+  height: 250px;
+  background-color: #000; /* Dark inner pebble frame */
+  border-radius: 40%; /* Creates the specific 'squircle' or pebble shape */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.speaker-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crops the photo neatly into the pebble shape */
+}
+
+/* ================= TOP LABEL STYLING ================= */
+.tinytalk-header-label {
+  position: relative;
+  z-index: 3;
+  background-color: #000; /* Black label */
+  color: #fff;
+  font-family: 'Arial Black', Gadget, sans-serif;
+  font-weight: 900;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 8px 18px;
+  border-radius: 12px;
+  width: fit-content;
+  align-self: flex-start;
+  margin-bottom: 20px;
+}
+
+.label-pink {
+  background-color: #ff69b4; /* The specific pink for Cody's label */
+}
+
+/* ================= FOOTER ================= */
+.tinytalk-footer {
+  position: relative;
+  z-index: 3;
+  font-family: 'Arial Black', Gadget, sans-serif;
+  font-weight: 900;
+  font-size: 16px;
+  color: #000;
+  margin-top: auto;
+}
+
+
+/* ================= NEWSLETTER SECTION ================= */
+
+.newsletter-banner {
+  position: relative;
+  background: url('../img/banners/newsletter\ banner.png') center/cover no-repeat;
+  color: #fff;
+  padding: 80px 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Dark overlay for readability */
+.newsletter-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+/* Content layer above overlay */
+.newsletter-banner .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Center content vertically */
+.newsletter-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* ================= TYPOGRAPHY ================= */
+
+.newsletter-title {
+  font-family: 'Zurambifont', Arial, sans-serif;
+  font-weight: 800;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  color: #fcd6a5;
+  margin-bottom: 10px;
+}
+
+.newsletter-text {
+  font-size: 1rem;
+  font-weight: 500;
+  opacity: 0.95;
+  margin-bottom: 20px;
+}
+
+.highlight-text {
+  color: #ffcc00;
+}
+
+/* ================= FORM ================= */
+
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+}
+
+.newsletter-form .input-group {
+  max-width: 500px;
+  width: 100%;
+}
+
+/* Input field */
+.newsletter-input {
+  height: 45px;
+  border: none;
+  padding: 0 15px;
+  font-family: 'Zurambifont', sans-serif;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+}
+
+/* Button */
+.btn-signup {
+  background-color: #01500e;
+  color: #fcd6a5;
+  border: none;
+  padding: 0 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-radius: 0 4px 4px 0;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-signup:hover {
+  background-color: #013a0b;
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .newsletter-banner {
+    padding: 60px 15px;
+  }
+
+  .newsletter-title {
+    font-size: 1.6rem;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 70px;
+  }
+
+  .newsletter-input,
+  .btn-signup {
+    width: 100%;
+    border-radius: 4px;
+  }
+
+  .btn-signup {
+    margin-top: 10px;
+  }
+}
+
+
+
+
+
+/* ================= FOOTER ================= */
+.site-footer {
+  background: #111;
+  color: #ccc;
+  padding: 60px 0 20px;
+}
+
+.footer-logo {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.logo-main {
+  color: #fff;
+}
+
+.logo-accent {
+  color: #00ff37;
+}
+
+.footer-description {
+  margin-top: 15px;
+  color: #aaa;
+  line-height: 1.6;
+}
+
+.footer-title {
+  color: #fff;
+  margin-bottom: 15px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #bbb;
+  transition: 0.3s;
+}
+
+.footer-links a:hover {
+  color: #8cc63f;
+  padding-left: 5px;
+}
+
+.footer-bottom hr {
+  border-color: #333;
+  margin: 30px 0 15px;
+}
+
+.footer-bottom p {
+  color: #777;
+  font-size: 13px;
+}

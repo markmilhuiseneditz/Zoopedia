@@ -1,176 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-   <link rel="stylesheet" href="mobileresponse.css">
-   <script src="animaldb.js"></script>
-   <script src="loadeddetails.js"></script>
-   <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="aboutnew.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="mobileresponse.css">
+
+  <!-- JS -->
+  <script src="animaldb.js" defer></script>
+  <script src="loadeddetails.js" defer></script>
+
+  <title>Zoopedia</title>
 </head>
-
-
-
-
-
-
 
 <body>
 
+<nav class="navbar navbar-expand-lg navbar-dark custom-nav sticky-top">
+  <div class="container">
 
-    <!-- navigation bar adjustments -->
-<nav class="navbar navbar-expand-lg custom-nav" data-bs-theme="dark">
-  <div class="container-fluid">
-    <img src="img/Zoopedia logo.png" alt="Zoopedia Logo" class="nav-logo">
+    <!-- Logo -->
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <img src="img/Zoopedia logo.png" alt="Zoopedia Logo" class="nav-logo me-2">
+      <span class="fw-bold">ZOOPEDIA</span>
+    </a>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <!-- Mobile Toggle -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
+    <!-- Nav Links -->
+    <div class="collapse navbar-collapse justify-content-center" id="mainNavbar">
+      <ul class="navbar-nav gap-lg-4 text-center">
+
         <li class="nav-item">
-          <a class="nav-link1"  aria-current="page" href="index.html">Home</a>
+          <a class="nav-link active" href="index.html">Home</a>
         </li>
+
         <li class="nav-item">
-          <a class="nav-link2" href="prdouct catalog.html">Creature Catalog</a>
+          <a class="nav-link" href="prdouct catalog.html">Creature Catalog</a>
         </li>
+
         <li class="nav-item">
-          <a class="nav-link3" href="about.html">Feed</a>
+          <a class="nav-link active" href="about.html">Feed</a>
         </li>
-        
+
         <li class="nav-item">
-          <a class="nav-link4" href="contact.html">Contact</a>
+          <a class="nav-link" href="contact.html">Contact</a>
         </li>
+
       </ul>
     </div>
+
   </div>
-</nav>  
+</nav>
 
 
+<section class="banneraboutus"></section>
 
 
+<!-- ABOUT SECTION -->
+<div class="container my-5">
+  <div class="row g-4 text-center">
 
-<!-- Predator Banner Section  -->
-<section id="banneraboutus">
-    </section>
+    <div class="col-md-4">
+      <div class="about-card h-100">
+        <h3>Who We Are</h3>
+        <p>Zoopedia is an online platform designed to provide information about zoos, animals, and wildlife parks around the world.</p>
+      </div>
+    </div>
 
-    
-<!-- About Section -->
-<div class="container mt-5">
+    <div class="col-md-4">
+      <div class="about-card h-100">
+        <h3>Our Mission</h3>
+        <p>Our mission is to educate people about wildlife conservation and help users explore species easily.</p>
+      </div>
+    </div>
 
-    <div class="row align-items-center">
+    <div class="col-md-4">
+      <div class="about-card h-100">
+        <h3>Our Vision</h3>
+        <p>We aim to become a leading wildlife education platform inspiring global conservation awareness.</p>
+      </div>
+    </div>
 
-        <!-- Image -->
-        <div class="col-md-6 mb-4">
-            <img src="img/banners/about page img.png" class="img-fluid rounded shadow" alt="Zoo Image">
+  </div>
+</div>
+
+
+<!-- TEAM SECTION -->
+<section class="team-section">
+  <div class="header">
+    <h1>Meet The Team | Our Professionals</h1>
+  </div>
+
+  <div class="container">
+    <div class="row g-4 justify-content-center">
+
+      <!-- Team Member -->
+      <div class="col-md-4 col-lg-4">
+        <div class="team-card text-center p-4">
+          <img src="img/profiles/ameendri.jpeg" class="img-fluid rounded-circle mb-3" alt="">
+          <h3>MARY BROWN</h3>
+          <span>Creative Leader</span>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
+      </div>
 
-        <!-- Text -->
-        <div class="col-md-6">
-            <h3 class="Abouttext">Who We Are</h3>
-            <p>
-                Zoopedia is an online platform designed to provide information about zoos,
-                animals, and wildlife parks around the world. We aim to make learning about
-                animals fun and accessible for everyone.
-            </p>
-
-            <h3 class="Abouttext" >Our Mission</h3>
-            <p>
-                Our mission is to educate people about wildlife conservation and help users
-                discover different animal species and zoos easily.
-            </p>
-
-            <h3 class="Abouttext" >Our Vision</h3>
-            <p>
-                We envision becoming a leading platform for wildlife education, inspiring
-                people to care for animals and protect nature.
-            </p>
+      <div class="col-md-4 col-lg-4">
+        <div class="team-card text-center p-4">
+          <img src="img/profiles/ayodya.jpeg" class="img-fluid rounded-circle mb-3" alt="">
+          <h3>BOB GREENFIELD</h3>
+          <span>Programming Guru</span>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
+      </div>
+
+      <div class="col-md-4 col-lg-4">
+        <div class="team-card text-center p-4">
+          <img src="img/profiles/githmi.jpeg" class="img-fluid rounded-circle mb-3" alt="">
+          <h3>ANN RICHMOND</h3>
+          <span>Sales Manager</span>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-lg-4">
+        <div class="team-card text-center p-4">
+          <img src="img/profiles/githmi.jpeg" class="img-fluid rounded-circle mb-3" alt="">
+          <h3>ANN RICHMOND</h3>
+          <span>Sales Manager</span>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-lg-4">
+        <div class="team-card text-center p-4">
+          <img src="img/profiles/githmi.jpeg" class="img-fluid rounded-circle mb-3" alt="">
+          <h3>ANN RICHMOND</h3>
+          <span>Sales Manager</span>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-lg-4">
+        <div class="team-card text-center p-4">
+          <img src="img/profiles/githmi.jpeg.jpg" class="img-fluid rounded-circle mb-3" alt="">
+          <h3>ANN RICHMOND</h3>
+          <span>Sales Manager</span>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
 
     </div>
-</div>
+  </div>
+</section>
 
-<!-- Team Section -->
- <section id="team-section">
-<div class="container mt-5">
-    <h2 class="Teamtxt">Our Team</h2>
 
-    <div class="row text-center">
-        <div class="col-md-4">
-            <img src="img/profiles/ameendri.jpeg" class="rounded-circle mb-3">
-            <h5 class="pronametxt">Ameendree .P</h5>
-             <p class="proclasstxt">Project Manager</p>
-        </div>
+<!-- MILESTONE TABLE -->
+<section class="milestone-section py-5">
+  <div class="container">
 
-        <div class="col-md-4">
-            <img src="img/profiles/mark.jpeg" class="rounded-circle mb-3">
-            <h5 class="pronametxt">Mark .M</h5>
-             <p class="proclasstxt">Cheif Developer</p>
-        </div>
+    <h1 class="section-title text-center mb-4">Our Milestones</h1>
 
-        <div class="col-md-4">
-            <img src="img/profiles/minasi.jpeg" class="rounded-circle mb-3">
-            <h5 class="pronametxt">Minasi .A</h5>
-            <p class="proclasstxt">UI Designer</p>
-        </div>
-         <div class="col-md-4">
-            <img src="img/profiles/vihara.jpeg" class="rounded-circle mb-3">
-            <h5 class="pronametxt">Vihara .A</h5>
-            <p class="proclasstxt">Database Admin</p>
-        </div>
-         <div class="col-md-4">
-            <img src="img/profiles/ayodya.jpeg" class="rounded-circle mb-3">
-            <h5 class="pronametxt">Ayodya .B</h5>
-            <p class="proclasstxt">Assist Developer 1</p>
-        </div>
-         <div class="col-md-4">
-            <img src="img/profiles/githmi.jpeg" class="rounded-circle mb-3">
-            <h5 class="pronametxt">Githmi .H</h5>
-             <p class="proclasstxt">Assist Developer 2</p>
-        </div>
+    <div class="table-responsive">
+      <table class="table table-striped table-hover text-center align-middle milestone-table">
+        
+        <thead class="table-dark">
+          <tr>
+            <th>Year</th>
+            <th>Milestone</th>
+            <th>Impact</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><span class="badge bg-success">2015</span></td>
+            <td>The First Seed</td>
+            <td>Planted 500 native trees</td>
+          </tr>
+
+          <tr>
+            <td><span class="badge bg-success">2019</span></td>
+            <td>Wild Sanctuary</td>
+            <td>50-acre protected habitat</td>
+          </tr>
+
+          <tr>
+            <td><span class="badge bg-success">2026</span></td>
+            <td>Global Canopy</td>
+            <td>1M hectares protected</td>
+          </tr>
+        </tbody>
+
+      </table>
     </div>
-</div>
 
- </section>
+  </div>
+</section>
 
- <h1 class="Grids">Our Milestones</h1>
-
- <div class="table-responsive mx-auto" style="max-width: 600px;"> 
-  <table class="table table-sm table-bordered wildlife-compact text-center">
-    <thead>
-      <tr>
-        <th style="width: 20%;">Year</th>
-        <th style="width: 40%;">Milestone</th>
-        <th style="width: 40%;">Impact</th>
-      </tr>
-    </thead>
-    <tbody class="align-middle">
-      <tr>
-        <td><strong>2015</strong></td>
-        <td>The First Seed</td>
-        <td>Planted 500 native trees.</td>
-      </tr>
-      <tr>
-        <td><strong>2019</strong></td>
-        <td>Wild Sanctuary</td>
-        <td>50-acre protected habitat.</td>
-      </tr>
-      <tr>
-        <td><strong>2026</strong></td>
-        <td>Global Canopy</td>
-        <td>1M hectares protected.</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-
-
-<!-- Image Banner using bootstrap for join us -->
 
 <section id="joinus" class="position-relative">
     
@@ -178,55 +214,56 @@
 
     <img src="img/banners/banner dreams for mob.jpg" class="img-fluid d-block d-md-none mobile-only-banner" alt="Mobile Banner">
     
-    <a href="about.html" class="btn custom-join-btn position-absolute">
+    <a href="contact.html" class="btn custom-join-btn position-absolute">
        JOIN THE WILD
     </a>
 </section>
 
 
-
-
-<!-- Footers -->
+<!-- FOOTER -->
 <footer class="site-footer">
-  <div class="footer-container">
-    <div class="footer-layout">
-      
-    <div class="footer-section brand-info">
-    <h3 class="footer-logo">
-    <span class="logo-main">ZOOPEDIA</span><span class="logo-accent"> PRIME</span>
-    </h3>
-    <p class="footer-description">Your premium destination for the latest automotive trends, technical specs, and exclusive deals.</p>
-    </div>
+  <div class="container">
 
-      <div class="footer-section site-navigation">
-        <h4 class="section-title">Quick Navigation</h4>
-        <ul class="footer-list">
-          <li><a href="prdouct catalog.html">Creature Catalog</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="contact.html">Support Center</a></li>
+    <div class="row footer-main">
+
+      <div class="col-md-4">
+        <h3 class="footer-logo">
+          <span class="logo-main">ZOOPEDIA</span>
+          <span class="logo-accent"> PRIME</span>
+        </h3>
+        <p class="footer-description">
+          Your premium destination for wildlife exploration and conservation awareness.
+        </p>
+      </div>
+
+      <div class="col-md-4">
+        <h4 class="footer-title">Quick Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="#">Creature Catalog</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Support Center</a></li>
         </ul>
       </div>
 
-      <div class="footer-section app-downloads">
-        <h4 class="section-title">Get the Mobile App</h4>
-        <p>Experience the full portal on your mobile device.</p>
-        <div class="store-buttons">
-          <a href="#" class="store-btn">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play">
-          </a>
-          <a href="#" class="store-btn">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on the App Store">
-          </a>
+      <div class="col-md-4">
+        <h4 class="footer-title">Get the App</h4>
+
+        <div class="d-flex flex-column gap-2">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" class="img-fluid" style="max-width:140px;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" class="img-fluid" style="max-width:140px;">
         </div>
+
       </div>
 
     </div>
 
-    <div class="footer-credits">
-      <hr class="footer-divider">
-      <p>&copy; 2026 Zoopedia Prime. All rights reserved.</p>
+    <div class="text-center mt-4">
+      <hr>
+      <p>&copy; 2026 Zoopedia Prime</p>
     </div>
+
   </div>
 </footer>
 
-
+</body>
+</html>
