@@ -41,12 +41,22 @@
 }
 
 @font-face {
-  font-family: 'HandilParaFont';
-  src: url('fonts/handil-pro-font/HandilproMedium-w10l3.otf') format('woff2');
+  font-family: 'wimpykid';
+  src: url('fonts/wimpykid/WimpyKid.ttf') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
+
+@font-face {
+  font-family: 'LionKing';
+  src: url('fonts/Lionking/lion_king.ttf') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
 
 
 /* __________________________________________________________________________________________________________________________ */
@@ -127,6 +137,40 @@ body {
         left: 50%;
         transform: translateX(-50%);
     }
+}
+
+/* NAV BAR GAME ICON CSS */
+
+.nav-game-trigger {
+    color: #ffffff !important;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    padding: 8px 15px !important;
+    
+}
+
+.nav-game-trigger:hover {
+    color: #9c27b0 !important; /* Apple Purple Text */
+    text-shadow: 0 0 8px rgba(156, 39, 176, 0.6);
+    transform: scale(1.05);
+}
+
+.nav-game-trigger i {
+    margin-right: 5px;
+    color: #ffd700; /* Gold icon to match the Egyptian game theme */
+}
+
+/* Target the nav-link specifically containing the gamepad */
+.nav-item .nav-link {
+    display: flex;
+    align-items: center; /* Centers the icon vertically with the text */
+    height: 100%; /* Ensures it uses the full height of the navbar */
+}
+
+.nav-link i, .nav-link span {
+    line-height: 1; /* Prevents extra spacing from font line-height */
+    vertical-align: middle;
+    margin-bottom: 2px; /* Fine-tune adjustment if it still looks a hair off */
 }
 
 /* Hero Section Banner Css*/
@@ -258,22 +302,17 @@ p {
 /*did you know banner*/
 
 .full-width-banner {
-  width: 100%;           /* Stretches to full width */
-  height: 500px;         /* Adjust height as needed */
-  background-image: url('img/banners/Did\ you\ know\ banner1.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  
-  /* Flexbox to center content */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+    background-image: url('img/banners/Did\ you\ know\ banner1\ darkmode.png.jpg');
+    height: 40vh;
+    background-size: cover;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 14px;
 }
 
 .btn-outline-primary2 {
-  margin-bottom: -360px; /* Physically pushes the button up from the bottom edge */
+  margin-top: 220px; /* Physically pushes the button up from the bottom edge */
 }
 
 /* Targeting your specific button class */
@@ -738,6 +777,16 @@ p {
 }
 
 
+@media (max-width: 768px) {
+    #bannerpred {
+      background-image: url('img/banners/predbanmob.png');
+        height: 33vh;            /* Slightly shorter height for mobile screens */
+        padding: 20px 10px;      /* Adjust padding for smaller width */
+        background-attachment: scroll; /* Ensures better performance on mobile browsers */
+    }
+  }
+
+
 
 
 
@@ -754,6 +803,16 @@ p {
 }
 
 
+/* Adjustments for Mobile Devices (max-width: 768px) */
+@media (max-width: 768px) {
+    #bannerdom {
+      background-image: url('img/banners/domesticmob.jpg');
+        height: 30vh;            /* Slightly shorter height for mobile screens */
+        padding: 20px 10px;      /* Adjust padding for smaller width */
+        background-attachment: scroll; /* Ensures better performance on mobile browsers */
+    }
+  }
+
  /* Adjustments for crawlers hero banner */
 
 #bannercrawl{
@@ -765,6 +824,17 @@ p {
     flex-direction: column;
     padding: 14px;
 }
+
+/* Adjustments for Mobile Devices (max-width: 768px) */
+@media (max-width: 768px) {
+    #bannercrawl {
+      background-image: url('img/banners/crawler\ mob.jpg');
+        height: 30vh;            /* Slightly shorter height for mobile screens */
+        padding: 20px 10px;      /* Adjust padding for smaller width */
+        background-attachment: scroll; /* Ensures better performance on mobile browsers */
+    }
+  }
+
 
 
  /* Adjustments for wild banner */
@@ -779,6 +849,14 @@ p {
     padding: 14px;
 }
 
+@media (max-width: 768px) {
+    #bannerwild {
+      background-image: url('img/banners/wild\ mob.jpg');
+        height: 30vh;            /* Slightly shorter height for mobile screens */
+        padding: 20px 10px;      /* Adjust padding for smaller width */
+        background-attachment: scroll; /* Ensures better performance on mobile browsers */
+    }
+  }
 
 
  /* Adjustments for explore wild banner */
@@ -792,6 +870,17 @@ p {
     flex-direction: column;
     padding: 14px;
 }
+
+/* Adjustments for Mobile Devices (max-width: 768px) */
+@media (max-width: 768px) {
+    #bannerdom {
+      background-image: url('img/banners/domesticmob.jpg');
+        height: 30vh;            /* Slightly shorter height for mobile screens */
+        padding: 20px 10px;      /* Adjust padding for smaller width */
+        background-attachment: scroll; /* Ensures better performance on mobile browsers */
+    }
+  }
+
 
 
  /* Adjustments for about us hero banner */
@@ -812,18 +901,20 @@ p {
     text-align: center;
     flex-direction: column;
     padding: 14px;
+    
 }
 
-/* --- Adjustments for Mobile Devices (max-width: 768px) --- */
-@media (max-width: 576px ) {
+
+
+/* Adjustments for Mobile Devices (max-width: 768px) */
+@media (max-width: 768px) {
     #banneraboutus {
-        /* DIFFERENT, smaller, or differently cropped image for mobile */
-        background-image: url('img/banners/Join\ us.jpg');
-
-        /* Reduced height for mobile so it doesn't take up the whole screen */
-        height: 30vh;
+      background-image: url('img/banners/jointeam\ mob.jpg');
+        height: 30vh;            /* Slightly shorter height for mobile screens */
+        padding: 20px 10px;      /* Adjust padding for smaller width */
+        background-attachment: scroll; /* Ensures better performance on mobile browsers */
     }
-}
+  }
 
 
 
@@ -1371,4 +1462,761 @@ table.wildlife-table td {
 /* Dim the image further when locked */
 .is-locked .maincardimg {
     filter: grayscale(1) brightness(0.3);
+}
+
+
+/* Video Banner CSS */
+
+.hero-banner {
+    background-color: #000; /* Keeps the area black while the video buffers */
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#bg-video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    /* Ensure the video is centered within your 600px height */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/* Optional: Add a dark overlay to make your white text pop */
+.hero-banner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* 40% black overlay */
+    z-index: 0;
+}
+
+/* Validation Icon in the form css in contact us page  */
+
+/* Parent container needs to be the anchor */
+.email-container {
+    position: relative;
+}
+
+.validation-icon {
+    position: absolute;
+    right: 12px;
+    top: 38px; /* Adjust based on your label height */
+    display: none;
+    font-weight: bold;
+    z-index: 10;
+}
+
+
+#error-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the button horizontally */
+    position: relative; 
+}
+
+#error-close-btn {
+    /* ADJUST THIS NUMBER TO MOVE IT UP OR DOWN */
+    margin-top: -320px; 
+    margin-right: 290px;
+    width: 150px;
+    height: 30px;
+    font-size: 15px;
+    text-align: center;
+    
+    z-index: 10; /* Ensures it stays on top of the image */
+    padding: 19px 40px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+
+
+
+/* CSS FOR POPUP BUTTON WHEN VALIDATING THE EMAIL FOR CONTACT FORM */
+
+/* The Blur Background */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Darkens background slightly */
+    backdrop-filter: blur(10px);    /* The Blur Effect */
+    display: none;                 /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;                 /* Higher than Navbar */
+}
+
+/* The Popup Box */
+.modal-box {
+    max-width: 500px;  /* Increase this number to make the whole popup larger */
+    width: 90%;        /* Keeps it responsive on mobile */
+    padding: 20px;
+    /* ... keep your existing centering styles ... */
+}
+
+.modal-img {
+    width: 100%;       /* Makes the image fill the width of the box */
+    height: auto;      /* Keeps the image proportions correct */
+    border-radius: 10px; /* Optional: adds nice rounded corners to the image */
+    margin-bottom: 20px;
+}
+
+.modal-box p1{
+    /* ADJUST THIS NUMBER TO MOVE IT UP OR DOWN */
+    position: relative;
+    top: -12px; 
+    font-size: 15px;
+    z-index: 10; /* Ensures it stays on top of the image */
+    font-weight: bold;
+    font-family: 'wimpykid', sans-serif;
+}
+
+
+
+/* Shared layout for the containers */
+#success-box, #error-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* Shared styles for both buttons */
+.popup-btn {
+    /* Adjust this to move both buttons UP or DOWN together */
+    margin-top: -45px; 
+    
+    /* Size and shape */
+    padding: 12px 40px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    font-family: 'wimpykid', sans-serif;
+    border-radius: 8px;
+    z-index: 10;
+    position: relative;
+}
+.modal-box p1{
+    /* ADJUST THIS NUMBER TO MOVE IT UP OR DOWN */
+    position: relative;
+    top: -12px; 
+    font-size: 15px;
+    z-index: 10; /* Ensures it stays on top of the image */
+    font-weight: bold;
+    font-family: 'wimpykid', sans-serif;
+    left: 40px;
+}
+
+/* Game section Css */
+#game-container {
+    width: 1024px;
+    height: 1024px;
+    background-image: url('img/elements/b2.png'); 
+    background-size: 100% 100%; /* Forces image to fill the 1024px box */
+    background-repeat: no-repeat;
+    position: relative;
+    margin: 0 auto; 
+    display: block;
+}
+
+
+#game-board {
+    width: 750px;  
+    height: 750px; 
+    position: absolute;
+    top: 138px;    
+    left: 138px;    
+    overflow: hidden; 
+    z-index: 10; /* Keeps the game layer below the score */
+}
+
+#score-board {
+    position: absolute;
+    top: 45px;            /* Positioned exactly on the top brick row */
+    left: 50px;
+    transform: translateX(-50%); 
+    
+    /* Egyptian Styling */
+    color: #ffd700;       /* Gold color */
+    font-size: 32px;
+    font-family: 'Arial Black', sans-serif;
+    font-weight: bold;
+    text-shadow: 3px 3px 5px #000; /* Makes it pop against the bricks */
+    z-index: 100;         /* Ensures it's always on top */
+    pointer-events: none; /* Clicking the score won't interfere with the game */
+}
+.snake-part {
+    width: 50px;   /* Exact size of one grass tile */
+    height: 50px;
+    position: absolute;
+    background-color: rgba(52, 152, 219, 0.8); /* Slightly transparent to see grid */
+    border: 1px solid #2980b9;
+    box-sizing: border-box;
+    display: block !important;
+    visibility: visible !important;
+    z-index: 999; /* Force it to the very top layer */
+}
+
+/* 1. Standard Head Styling */
+.snake-part:first-child {
+    background-color: #2cb464 !important; 
+    border-radius: 15px; 
+    z-index: 1000 !important; /* Higher z-index */
+    display: block !important;
+    visibility: visible !important;
+}
+
+/* 2. Dead Head Styling (Fixing the Z-Index) */
+.dead-head {
+    background-color: #e74c3c !important; /* Red */
+    z-index: 1001 !important; /* Must be HIGHER than the regular head */
+    display: block !important;
+    visibility: visible !important;
+}
+
+.food {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    background-image: url('img/elements/FOOD1.png');
+    background-size: contain;
+}
+
+
+/* 6. Score Styling */
+#score-board {
+    position: absolute;
+    transform: translateY(900px);
+    align-items: center;
+    color: #ffd700; /* Gold color for Egypt theme */
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px #000;
+}
+
+
+
+
+#play-button {
+    padding: 10px 5px;
+    font-size: 25px;
+    margin-left: 410px;
+    margin-top: 930px;
+    font-family: 'wimpykid', sans-serif;
+    background: #ffd700; /* Gold */
+    color: #3e2723; /* Dark Brown */
+    border: 4px solid #3e2723;
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 0 10px 0 #b8860b;
+    transition: all 0.1s;
+}
+
+#play-button:hover {
+    background: #ffec8b;
+    transform: scale(1.05);
+}
+
+#play-button:active {
+    transform: translateY(5px);
+    box-shadow: 0 5px 0 #b8860b;
+}
+
+#game-over-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(12px); /* Stronger blur for 1080p screens */
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.custom-popup-box {
+    position: relative; /* So the score and button can pin to it */
+    animation: bounceIn 0.5s;
+    max-width: 90%; /* Prevents it from touching edges on small screens */
+    text-align: center;
+}
+
+.bean-img {
+    width: 600px; /* Adjust to match your PNG's size */
+    height: auto;
+    border-radius: 15px;
+}
+
+/* Position the dynamic Score number OVER your blank spot in the PNG */
+#final-score-number {
+    position: absolute;
+    bottom: 140px; /* Shift up/down to land on your score circle */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 50px;
+    font-family: 'wimpykid', sans-serif;
+    color: #ffd700; /* Gold to match the Egyptian theme */
+    text-shadow: 2px 2px 5px #000;
+}
+
+#restart-button {
+    position: absolute;
+    bottom: 30px; /* Position it where the 'button' area is in your PNG */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 30px;
+    background: #a41900;
+    color: #fff;
+    font-family: 'wimpykid', sans-serif;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.1); opacity: 0; }
+    60% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+/* Narration part */
+
+/* NARRATION STYLING */
+.narration-box {
+    background: #1a1a1a;
+    border-radius: 15px;
+    border: 1px solid #333;
+}
+
+.btn-narration {
+    background: transparent;
+    border: 2px solid var(--apple-purple);
+    color: rgb(255, 255, 255);
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.animal-fact-card {
+    border: 1px solid #333;
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    color: #f4f4f4;
+    font-weight: 300;
+    background-size: cover;      /* Fills the box completely */
+    background-repeat: no-repeat;
+    height: 300px; 
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 15px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #333; 
+ 
+
+}  
+
+.text-purple {
+    font-family: 'LionKing', sans-serif;
+    color: rgb(218, 218, 218)
+}
+
+
+  .text-title{
+    font-family: 'Spancerfont', sans-serif;
+    color: #ffd700
+}
+
+
+/* This container holds all your text and pushes the buttons down */
+.card-content-wrapper {
+    flex-grow: 1; /* This takes up all available space */
+    overflow-y: auto; /* Adds a scrollbar INSIDE the card if text is too long */
+    margin-bottom: 10px;
+    padding-right: 5px;
+}
+
+/* Ensure the text doesn't take up too much space */
+.fact-text {
+    font-size: 14px;
+    margin-bottom: 10px;
+    /* Limits text to 3 lines so it doesn't crowd the buttons */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+
+
+
+.card-1 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('img/storycards/1.png'); }
+.card-2 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('img/storycards/2.png'); }
+.card-3 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('img/storycards/3.png'); }
+.card-4 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('img/storycards/4.png'); }
+.card-5 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('img/storycards/5.png'); }
+.card-6 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('img/storycards/6.png'); }
+.card-7 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('img/storycards/7.png'); }
+
+.animal-fact-card:hover {
+    border-color: #e7e7e7; /* Apple Purple */
+    transform: translateY(-5px);
+}
+
+.btn-play-pause, .btn-replay {
+    background: transparent;
+    border: 2px solid #d6d6d6;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-play-pause:hover, .btn-replay:hover {
+    background: #d7d7d7;
+}
+
+/* Highlight the text when the specific audio is playing */
+.playing-active .fact-text {
+    color: #f2ca00;
+    font-weight: bold;
+}
+
+/* BODY FOR STORY PAGE */
+
+.storypg-body {
+    /* 1. Path to your image */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                      url('img/banners/Lionking\ body.png');
+
+    /* 2. Make the image cover the whole screen */
+    background-size: cover;
+
+    /* 3. Center the image */
+    background-position: center;
+
+    /* 4. This keeps the background still while the content scrolls over it */
+    background-attachment: fixed;
+
+    /* 5. Prevents the image from repeating if the page is very long */
+    background-repeat: no-repeat;
+
+    /* Fallback color if the image fails to load */
+    background-color: #121212; 
+    
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Video Banner about page  */
+
+.video-banner {
+    position: relative;
+    width: 100%;
+    /* Change this from 100vh to your preferred height */
+    height: 500px; 
+    overflow: hidden;
+}
+
+#banner-video {
+width: 100%;
+    height: 100%;
+    object-fit: contain; /* This prevents zooming/cropping */
+    background: #000;    /* This fills the empty gaps with black */
+}
+
+.banner-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: white;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.3); /* Optional dark overlay for text readability */
+}
+
+#toggle-sound {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#toggle-sound.icon-circle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+    outline: none;
+}
+
+#toggle-sound.icon-circle:hover {
+    background: rgba(0, 0, 0, 0.8);
+    border-color: #fff;
+}
+
+
+/* Lizzard Game */
+
+/* The Unique Black Box Class */
+
+/* The Big Centered Box */
+        .lizard-chamber {
+            position: relative;
+            width: 90vw; /* 90% of viewport width */
+            height: 85vh; /* 85% of viewport height */
+            background-color: #000;
+            border: 4px solid #333;
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+            border-radius: 10px;
+            margin-top: 40px;
+            margin-left: 85px;
+        }
+
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .btn-spawn {
+            padding: 20px 50px;
+            background: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 15px;
+            font-family: 'wimpykid', sans-serif;
+        }
+
+        .btn-spawn:hover {
+            background: #fff;
+            color: #000;
+            box-shadow: 0 0 20px #fff;
+        }
+
+        canvas {
+            display: block;
+        }
+        
+
+
+        .bb8-toggle {
+  --toggle-size: 7px; /* Scaled for Navbar */
+  --toggle-width: 10.625em;
+  --toggle-height: 5.625em;
+  --toggle-offset: calc((var(--toggle-height) - var(--bb8-diameter)) / 2);
+  --toggle-bg: linear-gradient(#2c4770, #070e2b 35%, #628cac 50% 70%, #a6c5d4) no-repeat;
+  --bb8-diameter: 4.375em;
+  --radius: 99em;
+  --transition: 0.4s;
+  --accent: #de7d2f;
+  --bb8-bg: #fff;
+  
+  font-size: var(--toggle-size);
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+
+.bb8-toggle__checkbox {
+  display: none;
+}
+
+.bb8-toggle__container {
+  width: var(--toggle-width);
+  height: var(--toggle-height);
+  background: var(--toggle-bg);
+  background-size: 100% 200%;
+  background-position: center;
+  border-radius: var(--radius);
+  position: relative;
+  transition: var(--transition);
+}
+
+/* Switch background to Night when checked OR body is dark-mode */
+.bb8-toggle__checkbox:checked + .bb8-toggle__container,
+body.dark-mode .bb8-toggle__container {
+  background-position: center 100%;
+}
+
+.bb8-toggle__scenery {
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  position: relative;
+  border-radius: inherit;
+}
+
+.bb8-toggle__scenery > * {
+  position: absolute;
+  transition: var(--transition);
+}
+
+/* --- STARS --- */
+.bb8-toggle__star {
+  background: #fff;
+  width: 0.125em; height: 0.125em;
+  border-radius: 99em;
+  opacity: 0;
+  top: 1.563em; left: 3.75em;
+  box-shadow: -0.625em 1.25em 0 #fff, -1.875em 0.625em 0 #fff, -1.25em 1.875em 0 #fff, 0.625em 1.25em 0 #fff, 1.25em 2.188em 0 #fff, 2.188em 1.25em 0 #fff, 1.875em 0 #fff;
+}
+
+.bb8-toggle__checkbox:checked + .bb8-toggle__container .bb8-toggle__star,
+body.dark-mode .bb8-toggle__star {
+  opacity: 1;
+}
+
+/* --- MOONS (Tatooine) --- */
+.tatto-1, .tatto-2 {
+  width: 1.25em; height: 1.25em;
+  background: #feea97;
+  border-radius: 99em;
+  top: 100%;
+}
+.tatto-1 { left: 1.25em; box-shadow: 0 0 0 0.375em rgba(254, 234, 151, 0.2); }
+.tatto-2 { left: 2.5em; box-shadow: 0 0 0 0.125em rgba(254, 234, 151, 0.2); }
+
+.bb8-toggle__checkbox:checked + .bb8-toggle__container .tatto-1,
+body.dark-mode .tatto-1 { top: 2.188em; }
+.bb8-toggle__checkbox:checked + .bb8-toggle__container .tatto-2,
+body.dark-mode .tatto-2 { top: 1.25em; }
+
+/* --- CLOUDS --- */
+.bb8-toggle__cloud {
+  background: #fff;
+  width: 2.5em; height: 0.625em;
+  border-radius: 99em;
+  box-shadow: 0.313em 0.625em 0 -0.125em #fff, 1.25em 1.25em 0 -0.125em #fff, -1.25em 1.25em 0 -0.125em #fff;
+  top: 1.25em; left: 100%;
+}
+
+.bb8-toggle__checkbox:not(:checked) + .bb8-toggle__container .bb8-toggle__cloud,
+body:not(.dark-mode) .bb8-toggle__cloud {
+  left: 5.938em;
+}
+
+/* --- BB8 DROID --- */
+.bb8 {
+  width: var(--bb8-diameter);
+  height: var(--bb8-diameter);
+  position: absolute;
+  transition: var(--transition);
+  left: var(--toggle-offset);
+  top: var(--toggle-offset);
+}
+
+/* Move BB8 to the right side */
+.bb8-toggle__checkbox:checked + .bb8-toggle__container .bb8,
+body.dark-mode .bb8 {
+  left: calc(100% - var(--bb8-diameter) - var(--toggle-offset));
+}
+
+/* --- THE HEAD (FIXED ROTATION) --- */
+.bb8__head-container {
+  width: 2.5em; height: 1.563em;
+  position: absolute; top: -1.063em;
+  left: 50%; transform: translateX(-50%);
+  z-index: 2;
+  transition: var(--transition);
+}
+
+.bb8__head {
+  width: 100%; height: 100%;
+  background: #fff; border-radius: 1.25em 1.25em 0 0;
+  position: relative; z-index: 2;
+  box-shadow: inset 0 -0.188em 0 #afafaf;
+  overflow: hidden;
+}
+
+.bb8__head::before {
+  content: ""; width: 100%; height: 0.188em;
+  background: var(--accent); position: absolute; top: 0.188em; left: 0;
+}
+
+/* STOP THE ROTATION ON HOVER */
+.bb8-toggle:hover .bb8 {
+  transform: translateY(-2px); /* Gentle hop instead of rotation */
+}
+
+/* Head movement fix */
+.bb8-toggle:hover .bb8__head-container {
+  transform: translateX(-50%) translateY(-2px);
+}
+
+.bb8__body {
+  width: 100%; height: 100%;
+  background: var(--bb8-bg); border-radius: 99em;
+  position: relative; overflow: hidden;
+  box-shadow: inset -0.313em -0.313em 0 #afafaf;
+}
+
+.bb8__body::before {
+  content: ""; width: 2.188em; height: 2.188em;
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  border: 0.313em solid var(--accent); border-radius: 99em;
+  box-shadow: -1.563em -1.25em 0 -0.313em var(--accent), -1.563em -1.25em 0 -0.125em #afafaf, 1.563em -1.25em 0 -0.313em var(--accent), 1.563em -1.25em 0 -0.125em #afafaf, 1.563em 1.25em 0 -0.313em var(--accent), 1.563em 1.25em 0 -0.125em #afafaf, -1.563em 1.25em 0 -0.313em var(--accent), -1.563em 1.25em 0 -0.125em #afafaf;
+}
+
+.bb8__shadow {
+  width: var(--bb8-diameter); height: 0.625em;
+  background: rgba(0, 0, 0, 0.2); border-radius: 99em;
+  position: absolute; bottom: -0.313em;
+  left: var(--toggle-offset); transition: var(--transition);
+  z-index: 1;
+}
+
+.bb8-toggle__checkbox:checked + .bb8-toggle__container .bb8__shadow,
+body.dark-mode .bb8__shadow {
+  left: calc(100% - var(--bb8-diameter) - var(--toggle-offset));
 }

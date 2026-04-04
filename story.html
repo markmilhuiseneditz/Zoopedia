@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoopedia - Wild Encounters</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="darkmode.css">
+    <script src="characterparticaleffect.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="videoban.js"></script>
+    <script src="storypage.js"></script>
+    <script src="main.js"></script>
+    <script src="darkmode.js"></script>
+</head>
+<body class="storypg-body">
+
+
+
+
+    <!-- navigation bar adjustments -->
+<nav class="navbar navbar-expand-lg custom-nav" data-bs-theme="dark">
+  <div class="container-fluid">
+    <img src="img/Zoopedia logo.png" alt="Zoopedia Logo" class="nav-logo">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link1" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link2" href="prdouct catalog.html">Creature Catalog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link3" href="about.html">Feed</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link4" href="contact.html">Contact</a>
+        </li>
+        <li class="nav-item">
+    <a class="nav-link nav-game-trigger" href="gamepage.html">
+        <i class="fas fa-gamepad"></i>
+    </a>
+</li>
+      </ul>
+
+      <div class="navbar-nav ms-auto vault-container">
+ <div class="ms-auto me-3">
+  <label class="bb8-toggle">
+    <input class="bb8-toggle__checkbox" type="checkbox" id="darkModeToggle">
+    <div class="bb8-toggle__container">
+      <div class="bb8-toggle__scenery">
+        <div class="bb8-toggle__star"></div>
+        <div class="bb8-toggle__star"></div>
+        <div class="bb8-toggle__star"></div>
+        <div class="bb8-toggle__star"></div>
+        <div class="bb8-toggle__star"></div>
+        <div class="bb8-toggle__star"></div>
+        <div class="bb8-toggle__star"></div>
+        <div class="tatto-1"></div>
+        <div class="tatto-2"></div>
+        <div class="gomrassen"></div>
+        <div class="hermes"></div>
+        <div class="chenini"></div>
+        <div class="bb8-toggle__cloud"></div>
+        <div class="bb8-toggle__cloud"></div>
+        <div class="bb8-toggle__cloud"></div>
+      </div>
+      <div class="bb8">
+        <div class="bb8__head-container">
+          <div class="bb8__antenna"></div>
+          <div class="bb8__antenna"></div>
+          <div class="bb8__head"></div>
+        </div>
+        <div class="bb8__body"></div>
+      </div>
+      <div class="artificial__hidden">
+        <div class="bb8__shadow"></div>
+      </div>
+    </div>
+  </label>
+</div>
+      <div class="navbar-nav ms-auto vault-container">
+        <a class="nav-link vault-link" href="WildlifeVault.html">
+          <i class="fa-solid fa-vault"></i> Animal Vault
+        </a>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+
+<header class="hero-banner">
+    <video id="bg-video" autoplay muted loop playsinline poster="img/video-placeholder.jpg">
+        <source src="videos/trailer.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="banner-content">
+        <h1 id="main-title">Animal Vault</h1>
+        <button id="status-btn" class="btn">Check Video Status</button>
+        <div id="status-display"></div>
+    </div>
+</header>
+
+<!-- PART I -->
+
+<div class="container my-5">
+    <h2 class="text-center text-purple mb-4">Chapter I</h2>
+    <div class="row g-4">
+        
+        <div class="col-md-6 col-lg-4">
+            <div class="animal-fact-card card-1 p-4">
+                <h4 class="text-title">THE CROWN OF GALE</h4>
+                <p class="fact-text">As the golden sun rises over the African savanna, life awakens across the Pride Lands. Animals from every corner gather beneath the towering Pride Rock. At its peak stands the mighty king, Mufasa.
+Beside him, a newborn cub is presented to the world. His name is Simba. And as he is lifted high, the kingdom bows… welcoming its future king.</p>
+                
+                <div class="card-controls d-flex gap-2">
+                    <button class="btn-play-pause"><i class="fas fa-play"></i></button>
+                    <button class="btn-replay"><i class="fas fa-redo"></i></button>
+                </div>
+
+                <audio class="narration-audio">
+                    <source src="audio/Story Audio/part i.mpeg" type="audio/mpeg">
+                </audio>
+            </div>
+        </div>
+
+        </div>
+</div>
+
+<!-- PART II -->
+
+<div class="container my-5">
+    <h2 class="text-center text-purple mb-4">Chapter II</h2>
+    <div class="row g-4">
+        
+        <div class="col-md-6 col-lg-4">
+            <div class="animal-fact-card card-2 p-4">
+                <h4 class="text-title">THE GOLDEN MANE</h4>
+                <p class="fact-text">Simba grows into a playful and curious cub, full of excitement about becoming king one day.
+His father teaches him about the balance of life. how every creature has a place in the great Circle.
+But far from the sunlight, hidden in darkness,one lion watches with envy. Scar.</p>
+
+                
+                <div class="card-controls d-flex gap-2">
+                    <button class="btn-play-pause"><i class="fas fa-play"></i></button>
+                    <button class="btn-replay"><i class="fas fa-redo"></i></button>
+                </div>
+
+                <audio class="narration-audio">
+                    <source src="audio/Story Audio/part ii.mpeg" type="audio/mpeg">
+                </audio>
+            </div>
+        </div>
+
+        </div>
+</div>
+
+<!-- PART III -->
+
+<div class="container my-5">
+    <h2 class="text-center text-purple mb-4">Chapter III</h2>
+    <div class="row g-4">
+        
+        <div class="col-md-6 col-lg-4">
+            <div class="animal-fact-card card-3 p-4">
+                <h4 class="text-title">Chapter IV</h4>
+                <p class="fact-text">Driven by curiosity, Simba explores beyond his limits with his friend Nala.
+They wander into the forbidden Elephant Graveyard. where danger lurks.
+Suddenly, hyenas surround them, closing in. Fear rises. until a powerful roar shakes the ground.</p>
+                
+                <div class="card-controls d-flex gap-2">
+                    <button class="btn-play-pause"><i class="fas fa-play"></i></button>
+                    <button class="btn-replay"><i class="fas fa-redo"></i></button>
+                </div>
+
+                <audio class="narration-audio">
+                    <source src="audio/Story Audio/part iii.mpeg" type="audio/mpeg">
+                </audio>
+            </div>
+        </div>
+
+        </div>
+</div>
+
+
+<!-- PART IV -->
+
+<div class="container my-5">
+    <h2 class="text-center text-purple mb-4">Chapter IV</h2>
+    <div class="row g-4">
+        
+        <div class="col-md-6 col-lg-4">
+            <div class="animal-fact-card card-4 p-4">
+                <h4 class="text-title">THE GORGE'S SILENCE</h4>
+                <p class="fact-text">Mufasa arrives just in time, saving Simba and Nala from danger.
+But far away, Scar sets a darker plan in motion. He lures Simba into a narrow gorge. and triggers a massive stampede.Mufasa rushes in, rescuing his son in a heroic act… but as he climbs to safety, Scar betrays him.
+The king falls. and the Pride Lands lose their ruler.</p>
+
+
+                <div class="card-controls d-flex gap-2">
+                    <button class="btn-play-pause"><i class="fas fa-play"></i></button>
+                    <button class="btn-replay"><i class="fas fa-redo"></i></button>
+                </div>
+
+                <audio class="narration-audio">
+                    <source src="audio/Story Audio/part iv.mpeg" type="audio/mpeg">
+                </audio>
+            </div>
+        </div>
+
+        </div>
+</div>
+
+
+<!-- PART V -->
+
+<div class="container my-5">
+    <h2 class="text-center text-purple mb-4">Chapter V</h2>
+    <div class="row g-4">
+        
+        <div class="col-md-6 col-lg-4">
+            <div class="animal-fact-card card-5 p-4">
+                <h4 class="text-title">A KING WITHOUT A NAME</h4>
+                <p class="fact-text">Heartbroken, Simba is manipulated into believing the tragedy is his fault.
+He runs away… leaving behind his home and identity.
+Lost in the wild, he is rescued by Timon and Pumbaa, who teach him a carefree life Hakuna Matata.
+Years pass, and Simba grows into adulthood. forgetting who he truly is.</p>
+
+                
+                <div class="card-controls d-flex gap-2">
+                    <button class="btn-play-pause"><i class="fas fa-play"></i></button>
+                    <button class="btn-replay"><i class="fas fa-redo"></i></button>
+                </div>
+
+                <audio class="narration-audio">
+                    <source src="audio/Story Audio/part v.mpeg" type="audio/mpeg">
+                </audio>
+            </div>
+        </div>
+
+        </div>
+</div>
+
+
+<!-- PART VI -->
+
+<div class="container my-5">
+    <h2 class="text-center text-purple mb-4">Chapter VI</h2>
+    <h2 class="text-center text-purple mb-4"></h2>
+    <div class="row g-4">
+        
+        <div class="col-md-7 col-lg-4">
+            <div class="animal-fact-card card-6 p-4">
+
+                <h4 class="text-title">THE KING'S LONG SHADOW</h4>
+                <p class="fact-text">Meanwhile, under Scar’s rule, the Pride Lands fall into ruin.
+Food becomes scarce, and hope begins to fade. When Nala finds Simba alive, she urges him to return but he refuses, trapped by guilt.
+Only after a powerful reminder from Rafiki. and the voice of his father in the stars… does Simba find the courage to go back and face his past. </p>   
+                <div class="card-controls d-flex gap-2">
+                    <button class="btn-play-pause"><i class="fas fa-play"></i></button>
+                    <button class="btn-replay"><i class="fas fa-redo"></i></button>
+                </div>
+
+                <audio class="narration-audio">
+                    <source src="audio/Story Audio/part vi.mpeg" type="audio/mpeg">
+                </audio>
+            </div>
+        </div>
+
+        </div>
+</div>
+
+
+<!-- PART VII -->
+
+<div class="container my-5">
+    <h2 class="text-center text-purple mb-4">Chapter VII</h2>
+    <div class="row g-4">
+        
+        <div class="col-md-6 col-lg-4">
+            <div class="animal-fact-card card-7 p-4">
+                <h4 class="text-title">RAIN ON THE SCORCHED EARTH</h4>
+                <p class="fact-text">Simba returns to a broken kingdom and confronts Scar.
+The truth is revealed… and a fierce battle begins.
+In the end, Simba defeats Scar and reclaims his rightful place as king.
+Rain falls, restoring life to the land.
+And as time passes, a new cub is lifted at Pride Rock.The Circle of Life continues… forever.</p>
+
+                
+                <div class="card-controls d-flex gap-2">
+                    <button class="btn-play-pause"><i class="fas fa-play"></i></button>
+                    <button class="btn-replay"><i class="fas fa-redo"></i></button>
+                </div>
+
+                <audio class="narration-audio">
+                    <source src="audio/Story Audio/part vii.mpeg" type="audio/mpeg">
+                </audio>
+            </div>
+        </div>
+
+        </div>
+</div>
+
+</body>
+</html>

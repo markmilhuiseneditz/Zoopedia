@@ -8,9 +8,11 @@
    <link rel="stylesheet" href="mobileresponse.css">
    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+   <script src="validatonsignal.js"></script>
    <script src="animaldb.js"></script>
-   <script src="main.js"></script>
+   <script src="darkmode.js"></script>
    <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="darkmode.css">
     <title>Document</title>
 </head>
 
@@ -21,7 +23,6 @@
 
 
 <body>
-
 
 
     <!-- navigation bar adjustments -->
@@ -48,8 +49,49 @@
         <li class="nav-item">
           <a class="nav-link4" href="contact.html">Contact</a>
         </li>
+        <li class="nav-item">
+    <a class="nav-link nav-game-trigger" href="gamepage.html">
+        <i class="fas fa-gamepad"></i>
+    </a>
+</li>
       </ul>
 
+      <div class="navbar-nav ms-auto vault-container">
+ <div class="ms-auto me-3">
+  <label class="bb8-toggle">
+    <input class="bb8-toggle__checkbox" type="checkbox" id="darkModeToggle">
+    <div class="bb8-toggle__container">
+      <div class="bb8-toggle__scenery">
+        <div class="bb8-toggle__star"></div>
+        <div class="bb8-toggle__star"></div>
+        <div class="bb8-toggle__star"></div>
+        <div class="bb8-toggle__star"></div>
+        <div class="bb8-toggle__star"></div>
+        <div class="bb8-toggle__star"></div>
+        <div class="bb8-toggle__star"></div>
+        <div class="tatto-1"></div>
+        <div class="tatto-2"></div>
+        <div class="gomrassen"></div>
+        <div class="hermes"></div>
+        <div class="chenini"></div>
+        <div class="bb8-toggle__cloud"></div>
+        <div class="bb8-toggle__cloud"></div>
+        <div class="bb8-toggle__cloud"></div>
+      </div>
+      <div class="bb8">
+        <div class="bb8__head-container">
+          <div class="bb8__antenna"></div>
+          <div class="bb8__antenna"></div>
+          <div class="bb8__head"></div>
+        </div>
+        <div class="bb8__body"></div>
+      </div>
+      <div class="artificial__hidden">
+        <div class="bb8__shadow"></div>
+      </div>
+    </div>
+  </label>
+</div>
       <div class="navbar-nav ms-auto vault-container">
         <a class="nav-link vault-link" href="WildlifeVault.html">
           <i class="fa-solid fa-vault"></i> Animal Vault
@@ -59,6 +101,7 @@
     </div>
   </div>
 </nav>
+
 
 
 
@@ -130,32 +173,40 @@
 
 
 
-    <h1 class="Grids">24/7 Support</h1>
-
         <!-- Contact Form -->
-        <div class="col-md-7">
-            <form class="detailsector">
-                <div class="mb-3">
-                    <label class="form-label">Name</label>
-                    <input type="text" class="form-control" placeholder="Enter your name" required>
-                </div>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-7 dark-form-container">
+                
+                <h1 class="Grids">24/7 Support</h1>
 
-                <div class="mb-3">
-                    <label class="form-label">Email</label>
-                    <input type="email" class="form-control" placeholder="Enter your email" required>
-                </div>
+                <form class="detailsector">
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-control" placeholder="Enter your name" required>
+                    </div>
 
-                <div class="mb-3">
-                    <label class="form-label">Message</label>
-                    <textarea class="form-control" rows="5" placeholder="Write your message..." required></textarea>
-                </div>
-
-                <button type="submit" class="btn btn-primary w-100">Send Message</button>
-            </form>
+                    <div class="mb-3 email-container">
+                     <label class="form-label">Email</label>
+                    <input type="email" id="email-input" class="form-control" placeholder="Enter your email">
+                    <span id="tick-icon" class="validation-icon text-success">✔</span>
+                    <span id="cross-icon" class="validation-icon text-danger">✖</span>
         </div>
 
+                    <div class="mb-3">
+                        <label class="form-label">Message</label>
+                        <textarea class="form-control" rows="5" placeholder="Write your message..." required></textarea>
+                    </div>
+
+                    <button id="submit-btn" type="submit" class="btn btn-primary w-100">Send Message</button>
+                </form>
+
+            </div>
+        </div>
     </div>
+
 </div>
+
 
 <!-- Image Banner using bootstrap for join us -->
 
@@ -169,6 +220,7 @@
        JOIN THE WILD
     </a>
 </section>
+
 
 
 <!-- Footers -->
@@ -214,4 +266,18 @@
   </div>
 </footer>
 
+<div class="modal-overlay" id="modal-container">
+    
+<div id="success-box" class="modal-box">
+    <img src="img/banners/popup/correct.png" alt="Success" class="modal-img">
+    <button class="btn btn-success close-btn popup-btn">Close</button>
+</div>
 
+<div id="error-box" class="modal-box">
+    <img src="img/banners/popup/incorrect.png" alt="Error" class="modal-img">
+    <button class="btn btn-danger close-btn popup-btn">Try Again</button>
+</div>
+
+
+</body>
+</html>

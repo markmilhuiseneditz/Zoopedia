@@ -126,6 +126,7 @@ body.dark-mode {
     }
 }
 
+
 /* Hero Section Banner Css*/
 #bannerabout{
     background-image: url('img/banners/hero\ serction\ home.png');
@@ -188,7 +189,7 @@ body.dark-mode {
     object-fit: contain; /* Prevents images from stretching */
 }
 
-h4 {
+.dark-mode h4 {
     text-align: center;
     font-family: 'Spancerfont', sans-serif;
     margin-top: 30px;
@@ -254,29 +255,24 @@ p {
 }
 
 /*did you know banner*/
-.full-width-banner {
-  width: 100%;           /* Stretches to full width */
-  height: 500px;         /* Adjust height as needed */
-  background-image: url('img/banners/Did\ you\ know\ banner1.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  
-  /* Flexbox to center content */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+.dark-mode .full-width-banner {
+      background-image: url('img/banners/Did\ you\ know\ banner1\ darkmode.png.jpg');
+    height: 40vh;
+    background-size: cover;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 14px;
 }
 
-.btn-outline-primary2 {
-  margin-bottom: -360px; /* Physically pushes the button up from the bottom edge */
+.dark-mode .btn-outline-primary2 {
+  margin-top: 220px; /* Physically pushes the button up from the bottom edge */
 }
 
 /* Targeting your specific button class */
-.dark-mode .btn-outline-primary2 {
-  color: #BF5AF2;          /* Dark brown text */
-  border-color: #F2F2F7;   /* Dark brown border */
+.btn-outline-primary2 {
+  color: #eeb600;          /* Dark brown text */
+  border-color: #ffd000;   /* Dark brown border */
   background-color: transparent;
   padding: 15px 35px;
   font-weight: 600;
@@ -285,9 +281,9 @@ p {
 }
 
 /* Hover effect: Fills with brown, text turns white */
-.dark-mode .btn-outline-primary2:hover {
-  background-color: #753694;
-  border-color: #F2F2F7;
+.btn-outline-primary2:hover {
+  background-color: #5d4037;
+  border-color: #5d4037;
   color: #ffffff;
   transform: translateY(-2px); /* Subtle lift effect */
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -295,7 +291,7 @@ p {
 
 /* Active/Click effect */
 .btn-outline-primary2:active {
-  background-color: #BF5AF2; /* Even darker brown when clicked */
+  background-color: #3e2723; /* Even darker brown when clicked */
   transform: translateY(0);
 }
 
@@ -331,8 +327,8 @@ p {
 
 
 /* ================= CONTAINERS ================= */
- .notes-section {
-  background-image: url("img/banners/bg.webp"); /* Vibrant Purple Background */
+ .dark-mode .notes-section {
+  background-image: url("img/banners/Forest\ darkmode\ purple.jpg"); /* Vibrant Purple Background */
   background-size: cover;      /* Scales image to fit the entire container */
   background-position: center;   /* Centers the focal point of the photo */
   background-repeat: no-repeat;
@@ -457,9 +453,9 @@ p {
 /* CSS FOR NEWSLETTER SECTION */
 
 /* 1. The Main Banner (Image Background) */
-.newsletter-banner {
+.dark-mode .newsletter-banner {
   /* Replace 'YOUR_IMAGE_URL' with the link to your photo */
-  background-image: url('img/banners/newsletter\ banner.png');
+  background-image: url('img/banners/newsletter\ banner\ darkmode.png.jpg');
   background-size: cover;      /* Scales image to fit the entire container */
   background-position: center;   /* Centers the focal point of the photo */
   background-repeat: no-repeat;
@@ -631,20 +627,20 @@ p {
 }
 
 /* Ensure the logo itself doesn't have a default color overriding these */
-.footer-logo {
+.dark-mode .footer-logo {
   font-weight: 800;
   letter-spacing: -1px;
   text-transform: uppercase;
 }
 
 /* 2. Styling the Links */
-.footer-list {
+.dark-mode .footer-list {
   list-style: none;
   font-family: 'BebasNeuefont', sans-serif; 
   padding: 0;
 }
 
-.footer-list li {
+.dark-mode .footer-list li {
   margin-bottom: 12px;
   align-items: center;
 }
@@ -725,7 +721,7 @@ p {
  /* Adjustments for predators hero banner */
 
 .dark-mode #bannerpred{
-    background-image: url('img/banners/PREDATORS\ BANNER.png');
+    background-image: url('img/banners/PREDATORS\ BANNER\ dark\ mode.png.jpg');
     height: 40vh;
     background-size: cover;
     justify-content: center;
@@ -741,7 +737,7 @@ p {
  /* Adjustments for domestic animals hero banner */
 
 .dark-mode #bannerdom{
-    background-image: url('img/banners/dommestic.png');
+    background-image: url('img/banners/domestic\ dark\ mode.jpg');
     height: 40vh;
     background-size: cover;
     justify-content: center;
@@ -767,13 +763,27 @@ p {
  /* Adjustments for wild banner */
 
 .dark-mode #bannerwild{
-    background-image: url('img/banners/wild.png');
+    background-image: url('img/banners/wild\ dark\ mode.jpg');
     height: 40vh;
     background-size: cover;
     justify-content: center;
     text-align: center;
     flex-direction: column;
     padding: 14px;
+}
+
+
+
+
+/* --- Adjustments for Mobile Devices (max-width: 768px) --- */
+@media (max-width: 576px ) {
+    #bannerabout {
+        /* DIFFERENT, smaller, or differently cropped image for mobile */
+        background-image: url('img/banners/hero\ serction\ home\ mob.png');
+
+        /* Reduced height for mobile so it doesn't take up the whole screen */
+        height: 30vh;
+    }
 }
 
 
@@ -796,7 +806,7 @@ p {
 /* Adjustments for Desktop */
 .dark-mode #banneraboutus {
     /* Large image for desktop screens */
-    background-image: url('img/banners/Join\ us.jpg');
+    background-image: url('img/banners/Join\ us\ darkmode.jpg');
     
     /* These properties ensure it looks good and centers content */
     height: 40vh;
@@ -815,7 +825,7 @@ p {
 @media (max-width: 576px ) {
     .dark-mode #banneraboutus {
         /* DIFFERENT, smaller, or differently cropped image for mobile */
-        background-image: url('img/banners/Join\ us.jpg');
+        background-image: url('img/banners/Join\ us\ darkmode.jpg');
 
         /* Reduced height for mobile so it doesn't take up the whole screen */
         height: 30vh;
@@ -829,7 +839,7 @@ p {
 /* Adjustments for Desktop */
 .dark-mode #bannercontactus {
     /* Large image for desktop screens */
-    background-image: url('img/banners/CONTACT\ US.png');
+    background-image: url('img/banners/contact\ US\ dark\ mode.jpg');
     
     /* These properties ensure it looks good and centers content */
     height: 40vh;
@@ -845,10 +855,10 @@ p {
 }
 
 /* --- Adjustments for Mobile Devices (max-width: 768px) --- */
-@media (max-width: 576px ) {
+@media (max-width: 768px ) {
     .dark-mode #bannercontactus {
         /* DIFFERENT, smaller, or differently cropped image for mobile */
-        background-image: url('img/banners/contact\ mob.jpg');
+        background-image: url('img/banners/contact\ US\ MOB\ dark\ mode.jpg');
 
         /* Reduced height for mobile so it doesn't take up the whole screen */
         height: 30vh;
@@ -918,7 +928,7 @@ p {
             justify-content: center;
         }
 
-        .profile-icon {
+        .dark-mode .profile-icon {
             /* Size - adjusted for a prominent profile look */
             width: 320px; 
             height: 320px; 
@@ -930,8 +940,8 @@ p {
             object-fit: cover; 
             
             /* Branding & Styling */
-            border: 8px solid #035e21; /* Matches your 'Grids' color */
-            background-color: #f1e3d0;  /* Matches your 'custom-card' background */
+            border: 8px solid #BF5AF2; /* Matches your 'Grids' color */
+            background-color: #BF5AF2;  /* Matches your 'custom-card' background */
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
             
             /* Animation */
@@ -945,23 +955,23 @@ p {
 /* Title and description */
 
 /* Container for the text sections */
-.details-section {
+.dark-mode .details-section {
     max-width: 800px;
     margin: 40px auto;
     padding: 30px;
-    background: rgba(255, 255, 255, 0.6); /* Semi-transparent white */
+    background: rgba(12, 10, 10, 0.6); /* Semi-transparent white */
     backdrop-filter: blur(10px); /* Glass effect */
     border-radius: 30px;
-    border-left: 10px solid #035e21; /* Thick wildlife-green accent */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border-left: 10px solid #BF5AF2; /* Thick wildlife-green accent */
+    box-shadow: 0 10px 30px rgba(253, 253, 253, 0.05);
 }
 
-.KeyCharacteristics {
+.dark-mode .KeyCharacteristics {
     text-align: left; /* Aligned left to match the border accent */
     margin-top: 0;
     font-family: 'Spancerfont', sans-serif; /* Using your existing project font */
     font-size: 36px;
-    color: #035e21;
+    color: #BF5AF2;
     text-transform: uppercase;
     letter-spacing: 2px;
     display: flex;
@@ -976,22 +986,22 @@ p {
     color: #ffcc00; /* Gold accent from your footer logo */
 }
 
-.para {
+.dark-mode .para {
     text-align: justify;
     font-family: 'Zurambifont', sans-serif; /* Your clean project font */
     font-size: 1.1rem;
     line-height: 1.8;
-    color: #2c3e50;
+    color: #ce9ee5;
     margin-top: 20px;
     padding-left: 35px; /* Offset to align with the title text */
     position: relative;
 }
 
 /* Decorative quote or bracket for a 'Researcher Note' feel */
-.para::first-letter {
+.dark-mode .para::first-letter {
     font-size: 3rem;
     font-weight: bold;
-    color: #035e21;
+    color: #ce9ee5;
     float: left;
     margin-right: 10px;
     line-height: 1;
@@ -1030,29 +1040,29 @@ p {
 
 
 /* ================= ABOUT CARDS ================= */
-.about-card {
-  background: #fff;
+.dark-mode .about-card {
+  background: #252525;
   padding: 30px 25px;
   border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
   transition: 0.3s;
   height: 100%;
 }
 
-.about-card:hover {
+.dark-mode .about-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+
 }
 
-.about-card h3 {
+.dark-mode .about-card h3 {
   font-size: 22px;
   margin-bottom: 15px;
-  color: #2c3e50;
+  color: #BF5AF2;
+  font-weight: 500;
 }
 
-.about-card p {
+.dark-mode .about-card p {
   font-size: 15px;
-  color: #555;
+  color: #ce9ee5;
   line-height: 1.6;
 }
 
@@ -1062,13 +1072,13 @@ p {
   height: auto;
 }
 
-.header {
-  background: #0a680a;
-  color: white;
+.dark-mode .header {
+  background: #BF5AF2;
+  color: #7711a7;
   padding: 40px;
 }
 
-.header h1 {
+.dark-mode .header h1 {
   font-size: 40px;
   font-weight: bold;
   font-family: 'BebasNeuefont', sans-serif;
@@ -1078,8 +1088,8 @@ p {
 
 
 /* Team cards */
-.team-card {
-  background: #fff;
+.dark-mode .team-card {
+  background: #252525;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   border-radius: 12px;
   height: 100%;
@@ -1094,24 +1104,25 @@ p {
   filter: grayscale(100%);
 }
 
-.team-card h3 {
+.dark-mode .team-card h3 {
   font-size: 18px;
   margin-top: 10px;
   font-family: 'SFfontBold', sans-serif;
   letter-spacing: 1px;
+  color: #ce9ee5;
 
 }
 
-.team-card span {
-  color: #8cc63f;
+.dark-mode .team-card span {
+  color: #dfdde0;
   font-weight: bold;
   display: block;
   margin-bottom: 10px;
 }
 
-.team-card p {
+.dark-mode .team-card p {
   font-size: 14px;
-  color: #555;
+  color: #ce9ee5;
   line-height: 1.6;
   font-family: 'SFfontBold', sans-serif;
 }
@@ -1120,90 +1131,128 @@ p {
 /* bootstrap style table customization using external css  */
 
 /* Centered Compact Wildlife Theme */
-.wildlife-compact {
+.dark-mode .wildlife-compact {
     font-size: 0.85rem;
     margin: 2rem auto !important; /* Forces centering and adds vertical breathing room */
-    border-color: #D4AF37 !important;
-    background-color: #fdfbf7;
+    border-color: #ce9ee5 !important;
+    background-color: #202020 !important;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Optional: adds a nice lift */
 }
 
 /* Header Styling - Dark Green & Gold */
-.wildlife-compact thead th {
-    background-color: #1B3022 !important;
-    color: #D4AF37 !important;
-    border-bottom: 2px solid #D4AF37 !important;
+.dark-mode .wildlife-compact thead th {
+    background-color: #ce9ee5 !important;
+    color: #7711a7 !important;
+    border-bottom: 2px solid #7711a7 !important;
     padding: 10px !important;
 }
 
 /* Row Styling */
-.wildlife-compact td {
-    border-color: rgba(212, 175, 55, 0.2) !important;
+.dark-mode .wildlife-compact td {
+    border-color: #7711a7!important;
     padding: 8px !important;
-    color: #1B3022;
+    color: #ce9ee5;
+    background-color: #171718;
 }
 
 /* Highlight the Year column */
-.wildlife-compact td:first-child {
-    background-color: rgba(27, 48, 34, 0.03); /* Very faint green tint */
+.dark-mode .wildlife-compact td:first-child {
+    background-color: #202020; /* Very faint green tint */
     font-weight: bold;
 }
 
 /* Hover Effect */
-.wildlife-compact tbody tr:hover {
-    background-color: #f2ede0 !important;
+.dark-mode .wildlife-compact tbody tr:hover {
+    background-color: #202020 !important;
 }
 
 /* Contact Us Css */
 /* 1. The Header Background */
-table.wildlife-table thead tr {
-    background-color: #1b4332 !important; /* Deep Forest Green */
-    color: white !important;
+.dark-mode table.wildlife-table thead tr {
+    background-color: #be75e0 !important; /* Deep Forest Green */
+    color: #202020 !important;
 }
 
 /* 2. The Header Text specifically */
-table.wildlife-table thead th {
+.dark-mode table.wildlife-table thead th {
     background-color: inherit !important;
-    color: white !important;
-    border-bottom: 3px solid #582f0e; /* Earth Brown bottom border */
+    color: #202020 !important;
+    border-bottom: 3px solid #7711a7; /* Earth Brown bottom border */
+    
 }
 
 /* 3. Alternating Row Colors (Zebra Stripe) */
-table.wildlife-table tbody tr:nth-of-type(odd) {
-    background-color: #f0f7f4 !important; /* Soft Leaf Green */
+.dark-mode table.wildlife-table tbody tr:nth-of-type(odd) {
+    background-color: #202020 !important; /* Soft Leaf Green */
 }
 
-table.wildlife-table tbody tr:nth-of-type(even) {
-    background-color: #ffffff !important;
+.dark-mode table.wildlife-table tbody tr:nth-of-type(even) {
+    background-color: #202020 !important;
 }
 
 /* 4. The Labels (Left Column) */
-.wildlife-label {
+.dark-mode .wildlife-label {
     font-weight: bold;
-    color: #582f0e !important; /* Earth Brown */
+    color: #e7e7e7 !important; /* Earth Brown */
 }
 
 /* 5. General Table Border */
-table.wildlife-table {
-    border: 2px solid #1b4332 !important;
+.dark-mode table.wildlife-table {
+    border: 2px solid #7711a7 !important;
     border-collapse: collapse;
+    
 }
 
 /* 6. Fix for Bootstrap's default cell borders */
-table.wildlife-table td {
-    border-color: #d8e2dc !important;
+.dark-mode table.wildlife-table td {
+    border-color: #202020 !important;
+    background-color: #181818;
+    color: #ce9ee5;
 }
 
-.detailsector{
+.dark-mode .detailsector{
   margin-top: 60px;
   margin-bottom: 40px;
+
 }
 
+/* These styles only apply when .dark-mode is active on a parent container */
+
+
+.dark-mode .Grids {
+    color: #ffffff;
+}
+
+.dark-mode .detailsector .form-label {
+    color: #cfcfcf;
+}
+
+.dark-mode .detailsector .form-control {
+    background-color: #2b2b2b;
+    border: 1px solid #444;
+    color: #ffffff;
+}
+
+.dark-mode .detailsector .form-control::placeholder {
+    color: #777;
+}
+
+.dark-mode .detailsector .form-control:focus {
+    background-color: #333;
+    border-color: #0d6efd;
+    color: #fff;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* Button remains blue but we can tweak it for dark mode visibility */
+.dark-mode .detailsector .btn-primary {
+    background-color: #ce9ee5;
+}
 
 /* Social Media Btn Section */
 
 /* Banner Container */
-.banner {
+.dark-mode .banner {
  
   background: url('img/banners/FOLLOW\ FOR\ LAPTOP.jpg');
   height: 40vh;
@@ -1225,7 +1274,16 @@ table.wildlife-table td {
      margin-right: -50vw;
 
      
-     
+     /* --- Adjustments for Mobile Devices (max-width: 768px) --- */
+@media (max-width: 768px ) {
+ .dark-mode  .banner {
+        /* DIFFERENT, smaller, or differently cropped image for mobile */
+        background-image: url('img/banners/FOLLOW\ FOR\ MOB.jpg');
+
+        /* Reduced height for mobile so it doesn't take up the whole screen */
+        height: 30vh;
+    }
+}
 }
 
 /* Social Container */
@@ -1305,11 +1363,11 @@ table.wildlife-table td {
 }
 
 
-.custom-card-tv {
-    border: 4px solid #035e21; 
+.dark-mode .custom-card-tv {
+    border: 4px solid #ce9ee5; 
     border-radius: 20px;      
     padding: 20px;             
-    background-color: rgb(241, 227, 208);
+    background-color: rgb(48, 48, 48);
     display: flex;
     flex-direction: column;
     /* This ensures the card doesn't grow based on content */
@@ -1319,7 +1377,7 @@ table.wildlife-table td {
 }
 
 /* Ensure the card image container is relative so the static sits on top */
-.custom-card-tv {
+.dark-mode .custom-card-tv {
     height: auto !important;      /* Allows the card to grow */
     min-height: 400px;           /* Optional: Keeps a consistent minimum size */
     overflow: visible !important; /* Ensures text isn't clipped */
@@ -1329,19 +1387,40 @@ table.wildlife-table td {
 }
 
 
+/* Cards loading in the animal vault */
+
 /* Using !important ensures this font is used even if other styles exist */
-.custom-card-tv h5 {
+.dark-mode .custom-card-tv h5 {
+
     font-family: 'Zurambifont', sans-serif !important; 
     font-weight: bold;
     letter-spacing: 2px;
     margin-top: 15px;
+    color: #ce9ee5 !important;
+  
 }
 
-.custom-card-tv p {
+.dark-mode .custom-card-tv p {
         font-family: 'HandilParaFont', sans-serif;
         margin-bottom: 40px;
+        color: #ce9ee5 !important;
 }
 
+
+.dark-mode .btn-outline-success{
+          font-family: 'HandilParaFont', sans-serif;
+        margin-bottom: 40px;
+        color: #ce9ee5 !important;
+        border-color:#ce9ee5 ;
+}
+
+.dark-mode .btn-outline-success:hover{
+          font-family: 'HandilParaFont', sans-serif;
+        margin-bottom: 40px;
+        color: #ebebeb !important;
+        border-color:#c267ec ;
+        background-color: #c267ec;
+}
 /* Blur the button when locked */
 .is-locked .btn {
     filter: blur(2px);
@@ -1352,13 +1431,13 @@ table.wildlife-table td {
 }
 
 /* Create the Red Cross overlay */
-.is-locked .image-box::after {
+.dark-mode .is-locked .image-box::after {
     content: '✕';
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #ff0000;
+    color: #c267ec;
     font-size: 80px;
     font-weight: bold;
     z-index: 10;

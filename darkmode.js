@@ -1,38 +1,25 @@
 /* ==========================================================
-   DARK MODE LOGIC FOR ALL PAGES
+   DARK MODE LOGIC FOR BB8 TOGGLE (jQuery)
    ========================================================== */
 
-   $(document).ready(function() {
-    // 1. INITIAL CHECK (The Memory)
-    // Check if dark mode was previously saved in localStorage
+$(document).ready(function() {
+    const $body = $('body');
+    const $checkbox = $('.bb8-toggle__checkbox');
+
+    // 1. INITIAL LOAD
     if (localStorage.getItem('theme') === 'dark') {
-        $('body').addClass('dark-mode');
-        updateToggleButton(true);
+        $body.addClass('dark-mode');
+        $checkbox.prop('checked', true); // Moves droid to right & shows stars
     }
 
-    // 2. THE CLICK EVENT
-    $('#darkModeToggle').on('click', function() {
-        // Toggle the class on the body
-        $('body').toggleClass('dark-mode');
-
-        // Check if the body now has the class
-        const isDark = $('body').hasClass('dark-mode');
-
-        // Save the choice in localStorage
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-
-        // Update the button UI
-        updateToggleButton(isDark);
-    });
-
-    // 3. UI UPDATE FUNCTION
-    function updateToggleButton(isDark) {
-        if (isDark) {
-            $('#toggleText').text('Light Mode');
-            $('#darkModeToggle i').attr('class', 'fa-solid fa-sun'); // Attribute Modification
+    // 2. TOGGLE EVENT
+    $checkbox.on('change', function() {
+        if ($(this).is(':checked')) {
+            $body.addClass('dark-mode');
+            localStorage.setItem('theme', 'dark');
         } else {
-            $('#toggleText').text('Dark Mode');
-            $('#darkModeToggle i').attr('class', 'fa-solid fa-moon'); // Attribute Modification
+            $body.removeClass('dark-mode');
+            localStorage.setItem('theme', 'light');
         }
-    }
+    });
 });

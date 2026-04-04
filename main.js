@@ -1,6 +1,7 @@
-/* ==========================================================
-   PART 1: VAULT GALLERY LOGIC (WildlifeVault.html)
-   ========================================================== */
+/*  VAULT GALLERY LOGIC  */
+
+
+
 $(document).ready(function() {
     // Clean up existing static elements from previous templates
     $("h2:contains('Wild Animals'), h3:contains('Wild Animals')").next('.row').remove();
@@ -32,7 +33,7 @@ $(document).ready(function() {
                         </div>
                         <div class="card-body text-center">
                             <h5 class="text-success">${animal.animalname || "Unknown"}</h5>
-                            <p class="small text-muted">${desc.substring(0, 60)}...</p>
+                            <p class="small text-muted" >${desc}</p>
                             <a href="singleanimalpage.html?id=${animal.id}" class="btn btn-sm btn-outline-success w-100">View</a>
                         </div>
                     </div>
@@ -74,13 +75,13 @@ $(document).ready(function() {
     $(document).on('mouseenter', '.custom-card-tv', function() {
         if (!$(this).hasClass('is-locked')) {
             $(this).css({
-                'border': '1px solid #28a745',
-                'box-shadow': '0 0 15px rgba(40, 167, 69, 0.5)'
+                'border': '2px solid #7711a7',
+                'box-shadow': '0 0 15px #ce9ee5'
             });
         }
     }).on('mouseleave', '.custom-card-tv', function() {
         $(this).css({
-            'border': '1px solid rgba(0,0,0,.125)',
+            'border': '5px solid #ce9ee5',
             'box-shadow': 'none'
         });
     });
@@ -131,7 +132,6 @@ $(document).ready(function() {
         $('.animal-desc-prime').text("The requested digital file is missing or corrupted within the Zoopedia database.");
     }
 });
-
 
 
 

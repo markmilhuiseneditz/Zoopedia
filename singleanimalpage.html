@@ -9,8 +9,9 @@
    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
    <script src="animaldb.js"></script>
-   <script src="main.js"></script>
+   <script src="darkmode.js"></script>
    <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="darkmode.css">
     <title>Document</title>
 </head>
 
@@ -48,7 +49,17 @@
         <li class="nav-item">
           <a class="nav-link4" href="contact.html">Contact</a>
         </li>
+        <li class="nav-item">
+    <a class="nav-link nav-game-trigger" href="gamepage.html">
+        <i class="fas fa-gamepad"></i>
+    </a>
+</li>
       </ul>
+
+      <div class="navbar-nav ms-auto vault-container">
+  <button id="darkModeToggle" class="nav-link btn btn-link text-white me-3" style="text-decoration: none;">
+      <i class="fa-solid fa-moon"></i> <span id="toggleText">Dark Mode</span>
+  </button>
 
       <div class="navbar-nav ms-auto vault-container">
         <a class="nav-link vault-link" href="WildlifeVault.html">
@@ -59,6 +70,7 @@
     </div>
   </div>
 </nav>
+
 
 
 <!-- TextAnimalName -->
