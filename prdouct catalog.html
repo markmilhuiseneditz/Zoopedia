@@ -4,26 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-   <link rel="stylesheet" href="style.css">
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
    <link rel="stylesheet" href="mobileresponse.css">
+   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+   <script src="animaldb.js"></script>
+   <script src="main.js"></script>
+   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="darkmode.css">
     <title>Document</title>
 </head>
+
+
+
+
+
+
+
 <body>
 
-<!-- navigation bar adjustments -->
+
+
+    <!-- navigation bar adjustments -->
 <nav class="navbar navbar-expand-lg custom-nav" data-bs-theme="dark">
   <div class="container-fluid">
     <img src="img/Zoopedia logo.png" alt="Zoopedia Logo" class="nav-logo">
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
+      
+      <ul class="navbar-nav mx-auto">
         <li class="nav-item">
-          <a class="nav-link1"  aria-current="page" href="index.html">Home</a>
+          <a class="nav-link1" href="index.html">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link2" href="prdouct catalog.html">Creature Catalog</a>
@@ -31,15 +46,20 @@
         <li class="nav-item">
           <a class="nav-link3" href="about.html">Feed</a>
         </li>
-        
         <li class="nav-item">
           <a class="nav-link4" href="contact.html">Contact</a>
         </li>
       </ul>
+
+      <div class="navbar-nav ms-auto vault-container">
+        <a class="nav-link vault-link" href="WildlifeVault.html">
+          <i class="fa-solid fa-vault"></i> Animal Vault
+        </a>
+      </div>
+
     </div>
   </div>
-</nav>  
-
+</nav>
 
 
 

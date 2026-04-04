@@ -105,6 +105,29 @@
         padding: 20px;
     }
 
+
+            /* 3. Hero Banners mobile wildlife banner */
+ #bannerexpwild {
+                background-image: url('img/banners/Explore\ the\ wild\ ban\ mob.jpg'); 
+        width: 100%;
+        
+
+        background-size: cover; 
+        background-position: center;
+
+
+        aspect-ratio: 16 / 9; 
+
+
+        min-height: 300px; 
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+
         /* 3. Hero Banners mobile domestic animals  banner */
  #bannerdom {
                 background-image: url('img/banners/domesticmob.jpg'); 
@@ -151,8 +174,8 @@
 
 
             /* 3. Hero Banners mobile domestic animals  banner */
- #bannercrawl {
-                background-image: url('img/banners/crawler\ mob.jpg'); 
+ #banneraboutus {
+                background-image: url('img/banners/Join\ us.png'); 
         width: 100%;
         
 

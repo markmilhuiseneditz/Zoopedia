@@ -40,6 +40,15 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'HandilParaFont';
+  src: url('fonts/handil-pro-font/HandilproMedium-w10l3.otf') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
 /* __________________________________________________________________________________________________________________________ */
 
 body {
@@ -81,6 +90,44 @@ body {
   align-items: center;
 }
 
+/* Nav bar vault icon add*/
+/* Pushes the vault to the right and aligns items vertically */
+.vault-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Styles the link to look like a button/vault access */
+/* Styling for the Vault button */
+.vault-link {
+    color: #ffcc00 !important; /* Gold/Yellow text */
+    border: 1px solid #ffcc00; /* Matching border */
+    padding: 5px 15px !important;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+/* Hover effect for a "button" feel */
+.vault-link:hover {
+    background-color: #ffcc00;
+    color: #1a1a1a !important; /* Dark text on hover */
+}
+
+/* Spacing between the icon and the text */
+.vault-link i {
+    margin-right: 8px;
+}
+
+/* Ensure centering works correctly on large screens */
+@media (min-width: 992px) {
+    .navbar-nav.mx-auto {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
 
 /* Hero Section Banner Css*/
 #bannerabout{
@@ -128,7 +175,14 @@ body {
     flex-direction: column;
     /* This ensures the card doesn't grow based on content */
     height: 550px; 
+      transition: all 0.3s ease;
+    backface-visibility: hidden;
 }
+
+#animalContainer {
+    perspective: 1000px; /* This creates the 3D depth */
+}
+
 
 .maincardimg {
     border-radius: 20px;
@@ -713,7 +767,7 @@ p {
 }
 
 
- /* Adjustments for about us hero banner */
+ /* Adjustments for wild banner */
 
 #bannerwild{
     background-image: url('img/banners/wild.png');
@@ -724,6 +778,21 @@ p {
     flex-direction: column;
     padding: 14px;
 }
+
+
+
+ /* Adjustments for explore wild banner */
+
+#bannerexpwild{
+    background-image: url('img/banners/Explore\ the\ wild\ ban.jpg');
+    height: 40vh;
+    background-size: cover;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 14px;
+}
+
 
  /* Adjustments for about us hero banner */
 
@@ -1201,4 +1270,105 @@ table.wildlife-table td {
 /* Icon sizing */
 .btn-social i {
   font-size: 1.2rem;
+}
+
+
+
+/* The Static Noise Layer for Filter */
+.static-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+    display: none; /* Hidden by default */
+    /* This creates the "grainy" TV look using a gradient */
+    background: repeating-radial-gradient(#000 0 0.0001%, #fff 0 0.0002%) 50% 0/2500px 2500px,
+                repeating-conic-gradient(#000 0 0.0001%, #fff 0 0.0002%) 50% 50%/2500px 2500px;
+    background-blend-mode: difference;
+    animation: tv-static 0.2s infinite;
+    opacity: 0.8;
+}
+
+/* Make the static jump around like a real broken TV */
+@keyframes tv-static {
+    100% { background-position: 50% 0, 51% 51%; }
+}
+
+/* When this class is added, show the static and blur the image */
+.signal-lost .static-overlay {
+    display: block;
+}
+
+.signal-lost img {
+    filter: grayscale(1) blur(2px);
+}
+
+
+.custom-card-tv {
+    border: 4px solid #035e21; 
+    border-radius: 20px;      
+    padding: 20px;             
+    background-color: rgb(241, 227, 208);
+    display: flex;
+    flex-direction: column;
+    /* This ensures the card doesn't grow based on content */
+    height: 550px; 
+      transition: all 0.3s ease;
+    backface-visibility: hidden;
+}
+
+/* Ensure the card image container is relative so the static sits on top */
+.custom-card-tv {
+    height: auto !important;      /* Allows the card to grow */
+    min-height: 400px;           /* Optional: Keeps a consistent minimum size */
+    overflow: visible !important; /* Ensures text isn't clipped */
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+/* Using !important ensures this font is used even if other styles exist */
+.custom-card-tv h5 {
+    font-family: 'Zurambifont', sans-serif !important; 
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-top: 15px;
+}
+
+.custom-card-tv p {
+        font-family: 'HandilParaFont', sans-serif;
+        margin-bottom: 40px;
+}
+
+/* Blur the button when locked */
+.is-locked .btn {
+    filter: blur(2px);
+    opacity: 0.5;
+    background: #444 !important;
+    border-color: #666 !important;
+    color: #888 !important;
+}
+
+/* Create the Red Cross overlay */
+.is-locked .image-box::after {
+    content: '✕';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ff0000;
+    font-size: 80px;
+    font-weight: bold;
+    z-index: 10;
+    text-shadow: 0 0 10px rgba(0,0,0,0.8);
+    pointer-events: none;
+}
+
+/* Dim the image further when locked */
+.is-locked .maincardimg {
+    filter: grayscale(1) brightness(0.3);
 }

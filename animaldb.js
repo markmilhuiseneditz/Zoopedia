@@ -384,7 +384,7 @@
       LifeSpan: "40–50 years",
       Status: "Stable",
       KeyCharacteristics: "Camels are desert animals known for surviving long periods without water. They store fat in humps which provides energy during harsh conditions. Their long legs and padded feet help walking easily on hot sand. They are notably drought resistant.",
-      image: "img/animals/cam.jpeg"
+      image: "img/animals/cam.png"
     },
 
     {
@@ -600,8 +600,8 @@
       Diet: "Herbivore",
       LifeSpan: "10–20 years",
       Status: "Stable",
-      KeyCharacteristics: "Deer are graceful herbivorous mammals with slender bodies and antlers, usually found on males[cite: 2, 3]. Their speed and alert nature help them escape from predators[cite: 2].",
-      image: "img/animals/deer.png"
+      KeyCharacteristics: "Deer are graceful herbivorous mammals with slender bodies and antlers, usually found on males. Their speed and alert nature help them escape from predators.",
+      image: "img/animals/dear.png"
   },
 
   {
@@ -612,7 +612,7 @@
       Diet: "Omnivore",
       LifeSpan: "15–30 years",
       Status: "Varies",
-      KeyCharacteristics: "Monkeys are intelligent primates that are highly social and live in groups called troops[cite: 5, 6]. Their ability to climb trees and use tools makes them very adaptable[cite: 5].",
+      KeyCharacteristics: "Monkeys are intelligent primates that are highly social and live in groups called troops. Their ability to climb trees and use tools makes them very adaptable.",
       image: "img/animals/monkey.png"
   },
 
@@ -624,8 +624,8 @@
       Diet: "Herbivore",
       LifeSpan: "8–12 years",
       Status: "Stable",
-      KeyCharacteristics: "Kangaroos are marsupials native to Australia known for their hopping movement and pouches for carrying young[cite: 8, 9]. Their powerful tails help them balance while jumping[cite: 8].",
-      image: "img/animals/kangaroo.png"
+      KeyCharacteristics: "Kangaroos are marsupials native to Australia known for their hopping movement and pouches for carrying young. Their powerful tails help them balance while jumping.",
+      image: "img/animals/kang.png"
   },
 
   {
@@ -636,8 +636,8 @@
       Diet: "Herbivore",
       LifeSpan: "35–50 years",
       Status: "Endangered",
-      KeyCharacteristics: "Rhinoceroses are large mammals with thick skin and one or two horns[cite: 11, 12]. Despite their size, they can run very fast and are highly protective[cite: 11].",
-      image: "img/animals/rhinoceros.png"
+      KeyCharacteristics: "Rhinoceroses are large mammals with thick skin and one or two horns. Despite their size, they can run very fast and are highly protective.",
+      image: "img/animals/rhino.png"
   },
 
   {
@@ -648,8 +648,8 @@
       Diet: "Herbivore",
       LifeSpan: "40–50 years",
       Status: "Vulnerable",
-      KeyCharacteristics: "Hippopotamuses are large semi-aquatic animals that spend most of their time in water to keep cool[cite: 14, 15]. Despite a calm appearance, they can be very aggressive[cite: 14].",
-      image: "img/animals/hippopotamus.png"
+      KeyCharacteristics: "Hippopotamuses are large semi-aquatic animals that spend most of their time in water to keep cool. Despite a calm appearance, they can be very aggressive.",
+      image: "img/animals/hipo.png"
   },
 
   {
@@ -660,7 +660,7 @@
       Diet: "Omnivore",
       LifeSpan: "3–10 years",
       Status: "Stable",
-      KeyCharacteristics: "Foxes are small to medium-sized mammals known for their cunning nature and sharp senses[cite: 17, 18]. Their bushy tails help them balance and keep warm[cite: 17].",
+      KeyCharacteristics: "Foxes are small to medium-sized mammals known for their cunning nature and sharp senses. Their bushy tails help them balance and keep warm.",
       image: "img/animals/fox.png"
   },
 
@@ -672,8 +672,8 @@
       Diet: "Herbivore",
       LifeSpan: "15–25 years",
       Status: "Near Threatened",
-      KeyCharacteristics: "Bison are large mammals with massive heads, thick fur, and strong bodies[cite: 20, 21]. They live in herds and play an important role in maintaining ecosystems[cite: 20].",
-      image: "img/animals/bison.png"
+      KeyCharacteristics: "Bison are large mammals with massive heads, thick fur, and strong bodies. They live in herds and play an important role in maintaining ecosystems.",
+      image: "img/animals/buff.png"
   },
 
   {
@@ -688,7 +688,6 @@
       image: "img/animals/spider.png"
   },
 
-  [
   {
     id: 59, 
     animalname: "Leucistic Axolotl",
@@ -733,8 +732,7 @@
     KeyCharacteristics: "The 'wild-type' axolotl features dark, mottled skin (often brown or green) which helps it camouflage in its native lake habitats in Mexico. Like the leucistic variety, it possesses feathery external gills used for respiration underwater.",
     image: "img/animals/waterlizz.jpg"
   }
-]
+];
 
 
 
-  ];
