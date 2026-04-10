@@ -11,8 +11,8 @@
         :root {
             --primary: #8a2be2; /* Deep purple */
             --secondary: #00d2ff;
-            --bg: #0a0a0a;
-            --panel-bg: rgba(20, 20, 25, 0.85);
+            --bg: #0b0b0f;
+            --panel-bg: rgba(15, 15, 20, 0.9);
             --border: rgba(255, 255, 255, 0.08);
             --cursor-size: 24px;
         }
@@ -256,19 +256,80 @@
             transition: height 0.1s ease;
         }
 
-        /* Tooltip */
-        #selection-tip {
-            position: absolute;
-            background: var(--primary);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            pointer-events: none;
+        /* Settings Modal */
+        .settings-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+            z-index: 20000;
             display: none;
-            z-index: 1002;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            align-items: center; justify-content: center;
+        }
+
+        .settings-card {
+            background: var(--panel-bg);
+            border: 1px solid var(--primary);
+            padding: 40px;
+            border-radius: 24px;
+            width: 450px;
+            text-align: center;
+            box-shadow: 0 0 50px rgba(138, 43, 226, 0.4);
+        }
+
+        .settings-card h2 { margin-bottom: 10px; color: var(--secondary); }
+        .settings-card p { font-size: 0.9rem; opacity: 0.7; margin-bottom: 20px; }
+        
+        .api-input-wrap {
+            background: rgba(255,255,255,0.05);
+            padding: 5px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .api-input-wrap input {
+            flex: 1;
+            background: none;
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .btn-save {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border: none;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-settings-toggle {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 45px;
+            height: 45px;
+            background: var(--panel-bg);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center; justify-content: center;
+            color: rgba(255,255,255,0.5);
+            transition: 0.3s;
+            z-index: 10001;
+        }
+        
+        .btn-settings-toggle:hover {
+            color: var(--secondary);
+            border-color: var(--secondary);
+            transform: rotate(45deg);
         }
     </style>
 </head>
@@ -276,6 +337,23 @@
 
     <div id="ai-cursor"></div>
     <div id="selection-tip">Analyzing context...</div>
+
+    <div class="settings-overlay" id="settings-overlay">
+        <div class="settings-card">
+            <i class="fas fa-microchip fa-3x" style="color: var(--primary); margin-bottom: 20px;"></i>
+            <h2>Neural Link Config</h2>
+            <p>Enter your Gemini API Key to activate the global brain. Your key stays in this browser.</p>
+            <div class="api-input-wrap">
+                <input type="password" id="api-key-input" placeholder="AIzaSyA...">
+            </div>
+            <button class="btn-save" id="save-settings">CONNECT BRAIN</button>
+            <p style="margin-top: 20px; font-size: 0.7rem;">Don't have a key? Get one at aistudio.google.com</p>
+        </div>
+    </div>
+
+    <button class="btn-settings-toggle" id="open-settings">
+        <i class="fas fa-cog"></i>
+    </button>
 
     <div class="app-container">
         <!-- Main Document Area -->
@@ -422,9 +500,15 @@
             });
 
             // --- Core AI Logic & API Connection ---
-            const GEMINI_API_KEY = "AIzaSyA-DE0ubS99LkHIy5yXmBdIrktK7VORd60";
-
             async function callGemini(query) {
+                const savedKey = localStorage.getItem('neural_link_key');
+                
+                if (!savedKey) {
+                    aiSpeakAndLog("I cannot connect to my global brain. Please go to settings and enter your API Key.", false);
+                    $('#settings-overlay').css('display', 'flex');
+                    return;
+                }
+
                 // Ensure mic is OFF while AI is talking
                 recognition?.stop();
                 isTTSPlaying = true;
@@ -439,16 +523,14 @@
                     User Question: "${query}"
                     
                     Instructions:
-                    1. If there is highlighted context, focus your answer on that first.
-                    2. If not, answer the question using your global knowledge.
-                    3. Keep your response spoken-friendly (concise but clear).
-                    4. End your answer with a naturally inviting follow-up to keep the conversation going.
+                    1. Focus your answer on the highlighted context if available.
+                    2. Maintain a professional but conversational tone.
+                    3. Keep responses concise for voice audio.
+                    4. Invite follow-up questions to maintain the continuous chat.
                 `;
 
                 try {
-                    // Switching to v1 as v1beta might have regional or key-based restrictions for Flash
-                    const url = `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
-                    console.log("Attempting Neural Link (v1) to:", url.split('key=')[0] + "key=HIDDEN");
+                    const url = `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-pro:generateContent?key=${savedKey}`;
                     
                     const response = await fetch(url, {
                         method: 'POST',
@@ -460,8 +542,7 @@
 
                     if (!response.ok) {
                         const errBody = await response.json();
-                        const errMsg = errBody.error ? errBody.error.message : response.statusText;
-                        throw new Error(`API ${response.status}: ${errMsg}`);
+                        throw new Error(`API Error: ${errBody.error ? errBody.error.message : response.statusText}`);
                     }
 
                     const data = await response.json();
@@ -469,10 +550,27 @@
                     
                     aiSpeakAndLog(aiResponse, true);
                 } catch (error) {
-                    console.error("Gemini Connection Error Details:", error);
+                    console.error("Gemini Error:", error);
                     aiSpeakAndLog("Neural Link Failure: " + error.message, true);
                 }
             }
+
+            // --- UI Interaction Logic ---
+            $('#open-settings').click(() => $('#settings-overlay').css('display', 'flex'));
+            
+            $('#save-settings').click(() => {
+                const key = $('#api-key-input').val().trim();
+                if(key) {
+                    localStorage.setItem('neural_link_key', key);
+                    $('#settings-overlay').hide();
+                    aiSpeakAndLog("Neural Link successfully established. Brain online.");
+                }
+            });
+
+            // Close on background click
+            $('#settings-overlay').click(function(e) {
+                if(e.target === this) $(this).hide();
+            });
 
             function appendTranscript(sender, text) {
                 const isAI = sender === 'ai';
