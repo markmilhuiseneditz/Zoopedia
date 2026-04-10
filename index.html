@@ -446,8 +446,9 @@
                 `;
 
                 try {
-                    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
-                    console.log("Attempting Neural Link to:", url.split('key=')[0] + "key=HIDDEN");
+                    // Switching to v1 as v1beta might have regional or key-based restrictions for Flash
+                    const url = `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+                    console.log("Attempting Neural Link (v1) to:", url.split('key=')[0] + "key=HIDDEN");
                     
                     const response = await fetch(url, {
                         method: 'POST',
