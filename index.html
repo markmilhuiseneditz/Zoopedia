@@ -3,495 +3,531 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-   <link rel="stylesheet" href="mobileresponse.css">
-   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-   <script src="animaldb.js"></script>
-   <script src="darkmode.js"></script>
-   <link rel="stylesheet" href="style.css">
-   <link rel="stylesheet" href="darkmode.css">
-    <title>Document</title>
+    <title>AI Cursor | Desktop Application</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        :root {
+            --primary: #8a2be2; /* Deep purple */
+            --secondary: #00d2ff;
+            --bg: #0a0a0a;
+            --panel-bg: rgba(20, 20, 25, 0.85);
+            --border: rgba(255, 255, 255, 0.08);
+            --cursor-size: 24px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            cursor: none !important; 
+        }
+
+        body {
+            background: var(--bg);
+            color: #eaeaea;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            background-image: radial-gradient(circle at top left, rgba(138,43,226,0.15) 0%, transparent 40%),
+                              radial-gradient(circle at bottom right, rgba(0,210,255,0.1) 0%, transparent 40%);
+        }
+
+        /* --- AI Cursor --- */
+        #ai-cursor {
+            position: fixed;
+            width: var(--cursor-size);
+            height: var(--cursor-size);
+            background: var(--primary);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 10000;
+            mix-blend-mode: screen;
+            box-shadow: 0 0 20px var(--primary), 0 0 40px var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: width 0.3s, height 0.3s, background 0.3s;
+        }
+
+        #ai-cursor::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.8);
+            animation: pulse-ring 2s infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(2.5); opacity: 0; }
+        }
+
+        .cursor-trail {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            background: var(--secondary);
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.3;
+            z-index: 9999;
+        }
+
+        /* --- Layout --- */
+        .app-container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        /* Content Area */
+        .doc-area {
+            flex: 2;
+            background: var(--panel-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            overflow: hidden;
+        }
+
+        .doc-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.3);
+        }
+
+        .doc-header h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .doc-content {
+            padding: 40px;
+            overflow-y: auto;
+            flex: 1;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+        .doc-content h1 { color: #fff; margin-bottom: 20px; font-size: 2rem; }
+        .doc-content h3 { color: #fff; margin: 30px 0 15px 0; font-size: 1.3rem; }
+        .doc-content p { margin-bottom: 20px; text-align: justify; }
+        
+        ::selection {
+            background: rgba(138,43,226,0.4);
+            color: #fff;
+        }
+
+        /* Sidebar - Transcript */
+        .sidebar {
+            flex: 1;
+            background: var(--panel-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(20px);
+            min-width: 350px;
+        }
+
+        .sidebar-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--border);
+            background: rgba(0,0,0,0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .status-badge {
+            font-size: 0.8rem;
+            padding: 5px 12px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #555;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+        
+        .status-dot.active {
+            background: var(--secondary);
+            box-shadow: 0 0 10px var(--secondary);
+        }
+
+        .transcript-area {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .msg-bubble {
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            animation: slideIn 0.3s ease-out;
+            max-width: 90%;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .user-msg {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+
+        .ai-msg {
+            background: rgba(138,43,226,0.15);
+            border: 1px solid rgba(138,43,226,0.3);
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+
+        .ai-msg strong {
+            color: var(--secondary);
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .user-msg strong {
+            color: #aaa;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .viz-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+            height: 40px;
+            padding: 10px;
+            border-top: 1px solid var(--border);
+            background: rgba(0,0,0,0.2);
+        }
+
+        .viz-bar {
+            width: 4px;
+            height: 2px;
+            background: var(--secondary);
+            border-radius: 2px;
+            transition: height 0.1s ease;
+        }
+
+        /* Tooltip */
+        #selection-tip {
+            position: absolute;
+            background: var(--primary);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            pointer-events: none;
+            display: none;
+            z-index: 1002;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+    </style>
 </head>
-
-
-
-
-
-
-
 <body>
 
+    <div id="ai-cursor"></div>
+    <div id="selection-tip">Analyzing context...</div>
 
-
-    <!-- navigation bar adjustments -->
-<nav class="navbar navbar-expand-lg custom-nav" data-bs-theme="dark">
-  <div class="container-fluid">
-    <img src="img/Zoopedia logo.png" alt="Zoopedia Logo" class="nav-logo">
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarNav">
-      
-      <ul class="navbar-nav mx-auto">
-        <li class="nav-item">
-          <a class="nav-link1" href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link2" href="prdouct catalog.html">Creature Catalog</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link3" href="about.html">Feed</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link4" href="contact.html">Contact</a>
-        </li>
-        <li class="nav-item">
-    <a class="nav-link nav-game-trigger" href="gamepage.html">
-        <i class="fas fa-gamepad"></i>
-    </a>
-</li>
-      </ul>
-
-      <div class="navbar-nav ms-auto vault-container">
- <div class="ms-auto me-3">
-  <label class="bb8-toggle">
-    <input class="bb8-toggle__checkbox" type="checkbox" id="darkModeToggle">
-    <div class="bb8-toggle__container">
-      <div class="bb8-toggle__scenery">
-        <div class="bb8-toggle__star"></div>
-        <div class="bb8-toggle__star"></div>
-        <div class="bb8-toggle__star"></div>
-        <div class="bb8-toggle__star"></div>
-        <div class="bb8-toggle__star"></div>
-        <div class="bb8-toggle__star"></div>
-        <div class="bb8-toggle__star"></div>
-        <div class="tatto-1"></div>
-        <div class="tatto-2"></div>
-        <div class="gomrassen"></div>
-        <div class="hermes"></div>
-        <div class="chenini"></div>
-        <div class="bb8-toggle__cloud"></div>
-        <div class="bb8-toggle__cloud"></div>
-        <div class="bb8-toggle__cloud"></div>
-      </div>
-      <div class="bb8">
-        <div class="bb8__head-container">
-          <div class="bb8__antenna"></div>
-          <div class="bb8__antenna"></div>
-          <div class="bb8__head"></div>
-        </div>
-        <div class="bb8__body"></div>
-      </div>
-      <div class="artificial__hidden">
-        <div class="bb8__shadow"></div>
-      </div>
-    </div>
-  </label>
-</div>
-      <div class="navbar-nav ms-auto vault-container">
-        <a class="nav-link vault-link" href="WildlifeVault.html">
-          <i class="fa-solid fa-vault"></i> Animal Vault
-        </a>
-      </div>
-
-    </div>
-  </div>
-</nav>
-
-  <!-- Hero Section Banner -->
-  </section>
-  <section id="bannerabout">
-  </section>
-
-
-  <!-- Text for GridSecttion1 as title -->
-  <h1 class="Grids">The Pets</h1>
-
-
-  <!-- grid section 01 -->
-
-  <!-- Element 1 On Grid -->
-  <div class="container card-grid-container my-5">
-      <div class="row g-4"> <div class="col-lg-3 col-md-4 col-6">
-              <div class="custom-card">
-                  <img class="maincardimg" src="img/animals/dog.webp" alt="Dog">
-                  <div class="card-body">
-                      <h4>Dog</h4>
-                      <p class="card-text">Faithful and energetic, dogs make the perfect companion for any adventure.</p>
-                      <a href="singleanimalpage.html?id=1" class="btn btn-primary">Primary</a>
-                  </div>
-              </div>
-          </div>
-
-  <!-- Element 2 On Grid -->
-          <div class="col-lg-3 col-md-4 col-6">
-              <div class="custom-card">
-                  <img class="maincardimg" src="img/animals/cat.png" alt="Cat">
-                  <div class="card-body">
-                      <h4>Cat</h4>
-                      <p class="card-text">Independent yet affectionate, cats bring a calm presence to any home.</p>
-                      <a href="singleanimalpage.html?id=2" class="btn btn-primary">Primary</a>
-                  </div>
-              </div>
-          </div>
-
-  <!-- Element 3 On Grid -->
-
-          <div class="col-lg-3 col-md-4 col-6">
-              <div class="custom-card">
-                  <img class="maincardimg" src="img/animals/pig.png" alt="Pig">
-                  <div class="card-body">
-                      <h4>Pig</h4>
-                      <p class="card-text">Highly intelligent and social creatures that enjoy being part of a group.</p>
-                      <a href="singleanimalpage.html?id=3" class="btn btn-primary">Primary</a>
-                  </div>
-              </div>
-          </div>
-
-  <!-- Element 4 On Grid -->
-
-          <div class="col-lg-3 col-md-4 col-6">
-              <div class="custom-card">
-                  <img class="maincardimg" src="img/animals/rabbit.png" alt="Rabbit">
-                  <div class="card-body">
-                      <h4>Rabbit</h4>
-                      <p class="card-text">Quiet and gentle pets that love fresh greens and plenty of space to hop.</p>
-                      <a href="singleanimalpage.html?id=4" class="btn btn-primary">Primary</a>
-                  </div>
-              </div>
-          </div>
-
-  <!-- Element 5 On Grid -->
-
-          <div class="col-lg-3 col-md-4 col-6">
-              <div class="custom-card">
-                  <img class="maincardimg" src="img/animals/parrot.png" alt="Parrot">
-                  <div class="card-body">
-                      <h4>Parrot</h4>
-                      <p class="card-text">Colorful and vocal, these birds are known for their amazing ability to mimic sounds.</p>
-                      <a href="singleanimalpage.html?id=5" class="btn btn-primary">Primary</a>
-                  </div>
-              </div>
-          </div>
-
-  <!-- Element 6 On Grid -->
-
-          <div class="col-lg-3 col-md-4 col-6">
-              <div class="custom-card">
-                  <img class="maincardimg" src="img/animals/Rat.png" alt="Rat">
-                  <div class="card-body">
-                      <h4>Rat</h4>
-                      <p class="card-text">Often misunderstood, rats are clean, friendly, and very quick learners.</p>
-                      <a href="singleanimalpage.html?id=6" class="btn btn-primary">Primary</a>
-                  </div>
-              </div>
-          </div>
-
-  <!-- Element 7 On Grid -->
-
-          <div class="col-lg-3 col-md-4 col-6">
-              <div class="custom-card">
-                  <img class="maincardimg" src="img/animals/hamster.png" alt="Hamster">
-                  <div class="card-body">
-                      <h4>Hamster</h4>
-                      <p class="card-text">Small, nocturnal, and busy—hamsters are the classic starter pet for many.</p>
-                      <a href="singleanimalpage.html?id=7" class="btn btn-primary">Primary</a>
-                  </div>
-              </div>
-          </div>
-
-  <!-- Element 8 On Grid -->
-
-          <div class="col-lg-3 col-md-4 col-6">
-              <div class="custom-card">
-                  <img class="maincardimg" src="img/animals/fish.png" alt="Fish">
-                  <div class="card-body">
-                      <h4>Fish</h4>
-                      <p class="card-text">Peaceful and beautiful to watch, creating a tranquil underwater world.</p>
-                      <a href="singleanimalpage.html?id=8" class="btn btn-primary">Primary</a>
-                  </div>
-              </div>
-          </div>
-
-      </div> </div>
-
-  <!-- Fact Banner Adjustments  -->
-
-  <div class="full-width-banner">
-    <div class="content-wrapper">
-      <a href="https://www.treehugger.com/random-animal-facts-that-may-surprise-you-4868818" type="button" class="btn btn-outline-primary2">Primary</a>
-    </div>
-  </div>
-
-
-  <!-- Grid section 2 -->
-
-  <!-- Text For GridSecttion 02 As Title -->
-  <h1 class="Grids">Creature Index</h1>
-
-
-  <!-- Element 1 On Grid -->
-
-  <div class="container card-grid-container my-5">
-      <div class="row g-4">
-  <div class="col-lg-3 col-md-4 col-6">
-          <div class="custom-card">
-              <img class="maincardimg" src="img/animals/elep.png" alt="Elephant">
-              <div class="card-body">
-                  <h4>Elephant</h4>
-                  <p class="card-text">
-                      Large grey trunks spray cool water over dusty skin. Heavy feet stomp through the golden savanna.
-                  </p>
-                  <a href="singleanimalpage.html?id=36" class="btn btn-primary">View</a>
-              </div>
-          </div>
-      </div>
-
-  <!-- Element 2 On Grid -->
-
-      <div class="col-lg-3 col-md-4 col-6">
-          <div class="custom-card">
-              <img class="maincardimg" src="img/animals/giraff.png" alt="Giraffe">
-              <div class="card-body">
-                  <h4>Giraffe</h4>
-                  <p class="card-text">
-                      Long patterned necks reach toward the highest leaves. Spotted bodies glide across the vast open plains.
-                  </p>
-                  <a href="singleanimalpage.html?id=37" class="btn btn-primary">View</a>
-              </div>
-          </div>
-      </div>
-
-  <!-- Element 3 On Grid -->
-
-      <div class="col-lg-3 col-md-4 col-6">
-          <div class="custom-card">
-              <img class="maincardimg" src="img/animals/zeeb.png" alt="Zebra">
-              <div class="card-body">
-                  <h4>Zebra</h4>
-                  <p class="card-text">
-                      Bold black stripes cover their powerful running bodies. Shaggy manes flicker under the hot midday sun.
-                  </p>
-                  <a href="singleanimalpage.html?id=38" class="btn btn-primary">View</a>
-              </div>
-          </div>
-      </div>
-
-  <!-- Element 4 On Grid -->
-
-      <div class="col-lg-3 col-md-4 col-6">
-          <div class="custom-card">
-              <img class="maincardimg" src="img/animals/panda.png" alt="Panda">
-              <div class="card-body">
-                  <h4>Panda</h4>
-                  <p class="card-text">
-                      Soft white fur meets black patches around their eyes. Quiet giants chew on green stalks today.
-                  </p>
-                  <a href="singleanimalpage.html?id=20" class="btn btn-primary">View</a>
-              </div>
-          </div>
-      </div>
-
-      <!-- Element 5 On Grid -->
-
-      <div class="col-lg-3 col-md-4 col-6">
-          <div class="custom-card">
-              <img class="maincardimg" src="img/animals/dear.png" alt="Deer">
-              <div class="card-body">
-                  <h4>Deer</h4>
-                  <p class="card-text">
-                      Deer are graceful herbivorous mammals with slender bodies and antlers. Their speed and alert nature help them escape from predators.
-                  </p>
-                  <a href="singleanimalpage.html?id=51" class="btn btn-primary">View</a>
-              </div>
-          </div>
-      </div>
-
-      <!-- Element 6 On Grid -->
-
-      <div class="col-lg-3 col-md-4 col-6">
-          <div class="custom-card">
-              <img class="maincardimg" src="img/animals/monkey.png" alt="Monkey">
-              <div class="card-body">
-                  <h4>Monkey</h4>
-                  <p class="card-text">
-                      Monkeys are intelligent primates that are highly social and live in groups called troops. Their ability to climb trees and use tools makes them very adaptable.
-                  </p>
-                  <a href="singleanimalpage.html?id=52" class="btn btn-primary">View</a>
-              </div>
-          </div>
-      </div>
-
-        <!-- Element 7 On Grid -->
-
-      <div class="col-lg-3 col-md-4 col-6">
-          <div class="custom-card">
-              <img class="maincardimg" src="img/animals/kang.png" alt="Kangaroo">
-              <div class="card-body">
-                  <h4>Kangaroo</h4>
-                  <p class="card-text">
-                      Kangaroos are marsupials native to Australia known for their hopping movement and pouches. Their powerful tails help them balance while jumping.
-                  </p>
-                  <a href="singleanimalpage.html?id=53" class="btn btn-primary">View</a>
-              </div>
-          </div>
-      </div>
-
-        <!-- Element 8 On Grid -->
-
-      <div class="col-lg-3 col-md-4 col-6">
-          <div class="custom-card">
-              <img class="maincardimg" src="img/animals/rhino.png" alt="Rhinoceros">
-              <div class="card-body">
-                  <h4>Rhinoceros</h4>
-                  <p class="card-text">
-                      Rhinoceroses are large mammals with thick skin and one or two horns. Despite their size, they can run very fast and are highly protective.
-                  </p>
-                  <a href="singleanimalpage.html?id=54" class="btn btn-primary">View</a>
-              </div>
-          </div>
-      </div>
-      </div>
-  </div>
-
-  <!-- Row Notes Section -->
-
-
-<section class="notes-section my-5">
-  <div class="container">
-    <h1 class="notes-title text-center mb-4">Nature’s Oddities</h1>
-    <div class="row g-4">
-
-      <div class="col-lg-3 col-md-6">
-        <div class="tinytalk-card bg-1 h-100">
-          <div class="card-bg-text">LEUCISTIC<br>AXOLOTL<br>LEUCISTIC<br>AXOLOTL</div>
-          <div class="tinytalk-header-label">Leucistic Axolotl</div>
-          <div class="card-content">
-            <div class="pebble-frame">
-              <img src="img/animals/lacto.jpg" alt="Ciara Castro" class="speaker-photo">
+    <div class="app-container">
+        <!-- Main Document Area -->
+        <main class="doc-area">
+            <div class="doc-header">
+                <h2><i class="fas fa-file-pdf" style="color: #ff4757;"></i> Document Viewer (Local App Demo)</h2>
+                <span style="opacity: 0.5; font-size: 0.9rem;">Quantum_Computing_Overview.pdf</span>
             </div>
-          </div>
-          <div class="tinytalk-footer">Ambystoma mexicanum</div>
-        </div>
-      </div>
+            <div class="doc-content">
+                <h1>Quantum Computing and Neural Convergence</h1>
+                <p>Highlight any part of this research paper to activate the AI Cursor. The AI acts as your personal "Gemini" assistant embedded in the application, possessing global knowledge and contextual awareness.</p>
+                
+                <h3>1. Introduction to Superposition</h3>
+                <p>In quantum mechanics, superposition is a fundamental principle stating that any two quantum states can be added together ("superposed") to result in another valid quantum state. Conversely, every quantum state can be represented as a sum of two or more other distinct states. When dealing with qubits, this means the system can exist in a state of 0, 1, or both simultaneously until observed.</p>
+                
+                <h3>2. Entanglement in Artificial Neural Networks</h3>
+                <p>Quantum entanglement occurs when interacting particles yield a state that cannot be described independently of the state of the others. In modern Artificial Intelligence, researchers are exploring "Quantum Neural Networks" (QNNs) which mimic this behavior to solve complex optimization problems far faster than classical computers.</p>
 
-      <div class="col-lg-3 col-md-6">
-        <div class="tinytalk-card bg-2 h-100">
-          <div class="card-bg-text">CAECILIAN<br>CAECILIAN<br>CAECILIAN<br>CAECILIAN</div>
-          <div class="tinytalk-header-label">CAECILIAN</div>
-          <div class="card-content">
-            <div class="pebble-frame">
-              <img src="img/animals/Caecilian.jpg" alt="Anna Lou" class="speaker-photo">
+                <h3>3. The Role of the AI Cursor</h3>
+                <p>This localized desktop application employs an AI Cursor. By merely highlighting text like <b>"Quantum Neural Networks"</b>, the AI automatically wakes up, listens to your continuous audio stream, and provides precise, internet-backed explanations on the fly.</p>
             </div>
-          </div>
-          <div class="tinytalk-footer">Gymnophiona</div>
-        </div>
-      </div>
+        </main>
 
-      <div class="col-lg-3 col-md-6">
-        <div class="tinytalk-card bg-3 h-100">
-          <div class="card-bg-text">PANGOLIN<br>PANGOLIN<br>PANGOLIN<br>PANGOLIN</div>
-          <div class="tinytalk-header-label">PANGOLIN</div>
-          <div class="card-content">
-            <div class="pebble-frame">
-              <img src="img/animals/pil.png" alt="Anna Lou" class="speaker-photo">
+        <!-- Right Sidebar - Transcript -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3 style="font-size: 1rem; font-weight: 600;"><i class="fas fa-brain" style="color: var(--secondary);"></i> AI Brain Transcript</h3>
+                <div class="status-badge" id="status-badge">
+                    <div class="status-dot" id="status-dot"></div>
+                    <span id="status-text">Standby</span>
+                </div>
             </div>
-          </div>
-          <div class="tinytalk-footer">Manis</div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-6">
-        <div class="tinytalk-card bg-4 h-100">
-          <div class="card-bg-text">WILD<br>AXOLOTL<br>WILD<br>AXOLOTL</div>
-          <div class="tinytalk-header-label label-blue">WILD AXOLOTL</div>
-          <div class="card-content">
-            <div class="pebble-frame">
-              <img src="img/animals/waterlizz.jpg" alt="Marcus Lee" class="speaker-photo">
+            
+            <div class="transcript-area" id="transcript">
+                <div class="msg-bubble ai-msg">
+                    <strong>Gemini AI Brain</strong>
+                    Welcome to the AI Cursor Desktop Application. You can select any text in the document, and I will automatically ask how I can assist. You can maintain a continuous conversation with me until you say "stop".
+                </div>
             </div>
-          </div>
-          <div class="tinytalk-footer">Ambystoma mexicanum</div>
-        </div>
-      </div>
 
+            <div class="viz-container" id="viz">
+                <!-- Audio visualizer bars -->
+            </div>
+        </aside>
     </div>
-  </div>
-</section>
-  
-</section>
 
+    <script>
+        $(document).ready(function() {
+            const $cursor = $('#ai-cursor');
+            const $transcript = $('#transcript');
+            const $tip = $('#selection-tip');
+            const $statusText = $('#status-text');
+            const $statusDot = $('#status-dot');
+            
+            // Generate visualizer bars
+            const $viz = $('#viz');
+            for(let i=0; i<30; i++) {
+                $viz.append('<div class="viz-bar"></div>');
+            }
 
-  <!-- Newsletter Section -->
+            // --- Custom 1:1 Cursor ---
+            let mX = 0, mY = 0, cX = 0, cY = 0;
+            $(window).on('mousemove', function(e) {
+                mX = e.clientX;
+                mY = e.clientY;
+                createTrail(mX, mY);
+            });
 
-  <section class="newsletter-banner">
-    <div class="container h-100">
-      <div class="row h-100 align-items-center">
-        
-        <div class="col-md-6 newsletter-content">
-          <h2 class="newsletter-title">JOIN WITH US FOR NEWSLETTER</h2>
-          <p class="newsletter-text">
-            Check out Email updates about latest automobiles and <span class="highlight-text">special deals</span>
-          </p>
-        </div>
+            function updateCursor() {
+                cX += (mX - cX) * 0.25;
+                cY += (mY - cY) * 0.25;
+                $cursor.css('transform', `translate3d(${cX - 12}px, ${cY - 12}px, 0)`);
+                requestAnimationFrame(updateCursor);
+            }
+            updateCursor();
 
-        <div class="col-md-6">
-          <form class="newsletter-form">
-            <div class="input-group">
-              <input type="email" class="form-control newsletter-input" placeholder="Email address" aria-label="Email address">
-              <button class="btn btn-signup" type="submit">Sign Up</button>
-            </div>
-          </form>
-        </div>
+            function createTrail(x, y) {
+                const $t = $('<div class="cursor-trail"></div>').css({ left: x - 3, top: y - 3 });
+                $('body').append($t);
+                setTimeout(() => $t.fadeOut(300, function(){ $(this).remove(); }), 50);
+            }
 
-      </div>
-    </div>
-  </section>
+            // --- Voice Engine ---
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            let recognition;
+            let isTTSPlaying = false;
+            let currentMode = 'IDLE'; // IDLE, CONTINUOUS_CHAT
+            let selectedContext = "";
 
-  <!-- Footer Section  -->
-  <footer class="site-footer">
-    <div class="footer-container">
-      <div class="footer-layout">
-        
-      <div class="footer-section brand-info">
-      <h3 class="footer-logo">
-      <span class="logo-main">ZOOPEDIA</span><span class="logo-accent"> PRIME</span>
-      </h3>
-      <p class="footer-description">Your premium destination for the latest automotive trends, technical specs, and exclusive deals.</p>
-      </div>
+            if (SpeechRecognition) {
+                recognition = new SpeechRecognition();
+                recognition.continuous = true;
+                recognition.interimResults = false;
+                
+                recognition.onstart = () => {
+                    $statusText.text('Listening...');
+                    $statusDot.addClass('active');
+                    $cursor.css({'background': 'var(--secondary)', 'transform': 'scale(1.2)'});
+                    startViz();
+                };
 
-        <div class="footer-section site-navigation">
-          <h4 class="section-title">Quick Navigation</h4>
-          <ul class="footer-list">
-            <li><a href="prdouct catalog.html">Creature Catalog</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Support Center</a></li>
-          </ul>
-        </div>
+                recognition.onresult = (e) => {
+                    const text = e.results[e.results.length - 1][0].transcript.trim();
+                    if(text.length > 0) {
+                        appendTranscript('user', text);
+                        handleQuery(text);
+                    }
+                };
 
-        <div class="footer-section app-downloads">
-          <h4 class="section-title">Get the Mobile App</h4>
-          <p>Experience the full portal on your mobile device.</p>
-          <div class="store-buttons">
-            <a href="#" class="store-btn">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play">
-            </a>
-            <a href="#" class="store-btn">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on the App Store">
-            </a>
-          </div>
-        </div>
+                // Continuous loop unless specifically stopped
+                recognition.onend = () => {
+                    if(currentMode === 'CONTINUOUS_CHAT' && !isTTSPlaying) {
+                        recognition.start();
+                    } else if (currentMode === 'IDLE') {
+                        $statusText.text('Standby');
+                        $statusDot.removeClass('active');
+                        $cursor.css({'background': 'var(--primary)', 'transform': 'scale(1)'});
+                        stopViz();
+                    }
+                };
+            }
 
-      </div>
+            // --- Text Selection Trigger ---
+            $(document).on('mouseup', function(e) {
+                const sel = window.getSelection().toString().trim();
+                
+                if(sel.length > 5) {
+                    $tip.css({ left: e.clientX + 10, top: e.clientY - 30 }).fadeIn(200);
+                    selectedContext = sel;
+                    
+                    // Activate Continuous Chat Mode
+                    currentMode = 'CONTINUOUS_CHAT';
+                    recognition?.stop(); // Stop if already running to reset
+                    
+                    const openingMsg = `I see you highlighted "${sel.substring(0, 30)}...". How can I help you with this? You can ask anything, and I'll keep listening until you say stop.`;
+                    
+                    setTimeout(() => {
+                        aiSpeakAndLog(openingMsg, true);
+                    }, 200);
 
-      <div class="footer-credits">
-        <hr class="footer-divider">
-        <p>&copy; 2026 Zoopedia Prime. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+                } else if(sel.length === 0) {
+                    $tip.fadeOut(200);
+                }
+            });
 
+            // --- Core AI Logic & API Connection ---
+            const GEMINI_API_KEY = "AIzaSyA-DE0ubS99LkHIy5yXmBdIrktK7VORd60";
 
+            async function callGemini(query) {
+                // Ensure mic is OFF while AI is talking
+                recognition?.stop();
+                isTTSPlaying = true;
+                
+                $statusText.text('Thinking...');
+                $statusDot.css('background', 'var(--primary)');
+
+                const prompt = `
+                    You are a highly intelligent AI Cursor assistant. 
+                    The user is reading a document. 
+                    Highlighted Context: "${selectedContext || 'None'}"
+                    User Question: "${query}"
+                    
+                    Instructions:
+                    1. If there is highlighted context, focus your answer on that first.
+                    2. If not, answer the question using your global knowledge.
+                    3. Keep your response spoken-friendly (concise but clear).
+                    4. End your answer with a naturally inviting follow-up to keep the conversation going.
+                `;
+
+                try {
+                    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            contents: [{ parts: [{ text: prompt }] }]
+                        })
+                    });
+
+                    const data = await response.json();
+                    const aiResponse = data.candidates[0].content.parts[0].text;
+                    
+                    aiSpeakAndLog(aiResponse, true);
+                } catch (error) {
+                    console.error("Gemini Error:", error);
+                    aiSpeakAndLog("I encountered a connection error with my global brain. Please verify my neural links.", true);
+                }
+            }
+
+            function appendTranscript(sender, text) {
+                const isAI = sender === 'ai';
+                const el = $(`
+                    <div class="msg-bubble ${isAI ? 'ai-msg' : 'user-msg'}">
+                        <strong>${isAI ? 'Gemini AI Brain' : 'You'}</strong>
+                        ${text}
+                    </div>
+                `);
+                $transcript.append(el);
+                $transcript.scrollTop($transcript[0].scrollHeight);
+            }
+
+            function aiSpeakAndLog(msg, resumeListening = false) {
+                isTTSPlaying = true;
+                appendTranscript('ai', msg);
+                
+                const utt = new SpeechSynthesisUtterance(msg);
+                utt.pitch = 0.95;
+                utt.rate = 1.05;
+
+                utt.onend = () => {
+                    isTTSPlaying = false;
+                    if(currentMode === 'CONTINUOUS_CHAT' && resumeListening) {
+                        $statusText.text('Listening...');
+                        setTimeout(() => {
+                            try { recognition.start(); } catch(e) {}
+                        }, 500);
+                    }
+                };
+                
+                window.speechSynthesis.speak(utt);
+            }
+
+            function handleQuery(query) {
+                const lowerQ = query.toLowerCase();
+
+                // Stop command
+                if(lowerQ.includes('stop') || lowerQ === 'stop listening' || lowerQ.includes('shut up')) {
+                    currentMode = 'IDLE';
+                    aiSpeakAndLog("Microphone deactivated. System returning to standby.", false);
+                    return;
+                }
+
+                if(isTTSPlaying) return;
+
+                // Trigger real Gemini Brain
+                callGemini(query);
+            }
+
+            // Visualizer animation
+            let vizInterval;
+            function startViz() {
+                clearInterval(vizInterval);
+                vizInterval = setInterval(() => {
+                    $('.viz-bar').each(function() {
+                        $(this).css('height', (Math.random() * 35 + 2) + 'px');
+                    });
+                }, 100);
+            }
+            function stopViz() {
+                clearInterval(vizInterval);
+                $('.viz-bar').css('height', '2px');
+            }
+        });
+    </script>
+</body>
+</html>
